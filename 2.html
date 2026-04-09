@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Codinec — Premium Web Development Company in India</title>
   <meta name="description" content="Codinec - Best Web Development Company in India. PHP, Laravel, Mobile Apps, Chatbot, Custom Software Solutions.">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <style>
+    /* ==================== VARIABLES & RESET ==================== */
     :root {
       --background: #050810;
       --foreground: #e8e8e8;
@@ -78,12 +84,6 @@
     /* Gradient Text */
     .gradient-text {
       background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .gradient-text-alt {
-      background: linear-gradient(135deg, #f43f5e, #f97316, #facc15);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -357,7 +357,7 @@
       letter-spacing: 1px;
     }
 
-    /* ==================== 3D HERO VISUAL (Fixed for Mobile) ==================== */
+    /* ==================== 3D HERO VISUAL (Fixed for Mobile Visibility) ==================== */
     .hero-visual {
       position: relative;
       height: 350px;
@@ -389,13 +389,13 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1; /* Visible */
-        opacity: 0.6; /* Visible */
+        z-index: 1; /* Higher than canvas, lower than text */
+        opacity: 0.6; /* Increased visibility so it's not missing */
         pointer-events: none;
         overflow: hidden;
       }
       .hero-3d-stage {
-        transform: scale(0.8) translateY(10%);
+        transform: scale(0.8) translateY(10%); /* Slightly smaller to fit better */
         width: 100%;
         height: 100%;
       }
@@ -419,7 +419,7 @@
     .layer-code {
       top: 20%;
       left: 50%;
-      width: 280px;
+      width: 280px; /* Slightly smaller for mobile */
       transform: translate(-50%, -50%) translateZ(60px);
     }
     @media (min-width: 768px) {
@@ -436,7 +436,7 @@
     .code-dot.green { background: #10b981; }
     .code-block {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.65rem; /* Smaller font for mobile */
       color: #e2e8f0;
       line-height: 1.6;
     }
@@ -448,7 +448,7 @@
     .layer-tech {
       bottom: 15%;
       right: 0;
-      width: 220px;
+      width: 220px; /* Slightly smaller */
       transform: translateZ(40px) rotateY(15deg) rotateX(5deg);
     }
     @media (min-width: 768px) {
@@ -575,7 +575,7 @@
       position: relative;
       width: 140px;
       height: 140px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 3rem; /* Reduced margin for mobile to fit better */
       border-radius: 50%;
       background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.1));
       border: 2px solid rgba(16, 185, 129, 0.3);
@@ -640,7 +640,7 @@
 
     .tree-node {
       position: relative;
-      padding: 1.25rem;
+      padding: 1.25rem; /* Slightly less padding for mobile */
       background: linear-gradient(145deg, rgba(13, 21, 37, 0.95), rgba(10, 15, 26, 0.98));
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 1rem;
@@ -674,7 +674,7 @@
     @media (max-width: 1023px) { .node-connector { display: none; } }
 
     .node-icon {
-      width: 2.5rem;
+      width: 2.5rem; /* Slightly smaller for mobile */
       height: 2.5rem;
       border-radius: 0.875rem;
       display: flex;
@@ -688,7 +688,7 @@
     .tree-node:hover .node-icon { transform: scale(1.1) rotate(5deg); }
     .node-title {
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.8rem; /* Smaller text for mobile */
       color: white;
       margin-bottom: 0.5rem;
       line-height: 1.3;
@@ -696,12 +696,11 @@
     @media (min-width: 640px) { .node-title { font-size: 0.9rem; } }
     
     .node-desc {
-      font-size: 0.65rem;
+      font-size: 0.65rem; /* Smaller desc for mobile */
       color: #64748b;
       line-height: 1.4;
     }
     @media (min-width: 640px) { .node-desc { font-size: 0.75rem; line-height: 1.5; } }
-
 
     /* ==================== RECENT PROJECTS SECTION ==================== */
     #projects {
@@ -979,6 +978,31 @@
       transition: gap 0.3s;
     }
     .product-card:hover .product-link { gap: 0.5rem; }
+    .product-placeholder {
+      height: 180px;
+      background: linear-gradient(135deg, rgba(10, 15, 26, 1), rgba(13, 21, 37, 1));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .placeholder-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .placeholder-text {
+      font-size: 0.6875rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
 
     /* ==================== ABOUT & CONTACT ==================== */
     #about { position: relative; padding: 5rem 0; overflow: hidden; }
@@ -1105,32 +1129,20 @@
     }
     .footer-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent); }
     .footer-content { padding: 4rem 0 2rem; }
-    
     .footer-grid {
       display: grid;
-      grid-template-columns: 1fr; /* Mobile: Stacked vertically */
+      grid-template-columns: 1fr; /* Mobile: 1 Column */
       gap: 2.5rem;
       margin-bottom: 4rem;
     }
-    @media (min-width: 640px) {
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr); /* Tablet: 2 cols */
-        gap: 2rem;
-      }
-    }
-    @media (min-width: 1024px) {
-      .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Desktop: 4 cols */
-        gap: 2rem;
-      }
-    }
-
+    @media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+    @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 2rem; } }
+    
     .footer-brand p {
       font-size: 0.875rem;
       color: #64748b;
       line-height: 1.7;
       margin: 1.25rem 0 1.5rem;
-      max-width: 100%;
     }
     .social-links { display: flex; gap: 0.75rem; }
     .social-link {
@@ -1146,6 +1158,7 @@
       transition: all 0.3s;
     }
     .social-link:hover { background: #10b981; color: white; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3); }
+    
     .footer-links h4 {
       font-size: 0.75rem;
       font-weight: 700;
@@ -1165,21 +1178,11 @@
       transition: color 0.3s;
     }
     .footer-links a:hover { color: #10b981; }
-    .footer-links a::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #334155;
-      transition: background 0.3s;
-    }
-    .footer-links a:hover::before { background: #10b981; }
     
     .footer-newsletter p { font-size: 0.875rem; color: #64748b; margin-bottom: 1rem; }
     .newsletter-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .newsletter-input {
       flex: 1;
-      min-width: 200px;
       padding: 0.75rem 1rem;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
@@ -1187,7 +1190,6 @@
       color: white;
       font-size: 0.875rem;
     }
-    .newsletter-input:focus { outline: none; border-color: #10b981; }
     .newsletter-btn {
       width: 3rem;
       height: 3rem;
@@ -1203,7 +1205,7 @@
       flex-shrink: 0;
     }
     .newsletter-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
-    
+
     .footer-bottom {
       display: flex;
       flex-direction: column;
@@ -1215,8 +1217,7 @@
     }
     @media (min-width: 640px) { .footer-bottom { flex-direction: row; } }
     .footer-copyright { font-size: 0.875rem; color: #475569; }
-    .footer-legal { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-    @media (min-width: 640px) { .footer-legal { justify-content: flex-end; } }
+    .footer-legal { display: flex; gap: 1.5rem; }
     .footer-legal a { font-size: 0.875rem; color: #475569; transition: color 0.3s; }
     .footer-legal a:hover { color: #10b981; }
 
@@ -1408,7 +1409,7 @@
                 <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#06b6d4"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg></div>
                 <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8"/></svg></div>
                 <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-                <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2 2z"/></svg></div>
+                <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg></div>
                 <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#14b8a6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
               </div>
             </div>
@@ -1519,7 +1520,7 @@
           <div class="tree-node" style="--node-color: #06b6d4; --node-glow: rgba(6,182,212,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #06b6d4, transparent);"></div>
             <div class="node-icon" style="background: rgba(6,182,212,0.1);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </div>
             <div class="node-title">Tools & Automation</div>
             <p class="node-desc">Automated workflows</p>
@@ -1767,4 +1768,641 @@
         <!-- Testimonial 3 -->
         <div class="testimonial-card">
           <div class="quote-icon">“</div>
-          <p class="testimonial-text">We needed a complex ERP system, and Codinec delivered it seamlessly
+          <p class="testimonial-text">We needed a complex ERP system, and Codinec delivered it seamlessly. They understand business logic, not just code.</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Client" class="client-avatar">
+            <div class="client-details">
+              <h4>Amit Verma</h4>
+              <span>Director, LogiTrans</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION (NEW) -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge" style="margin-bottom: 1.25rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Blog</span>
+        </div>
+        <h2 class="section-title">Latest <span class="gradient-text">Insights</span></h2>
+        <p class="section-desc">Stay updated with latest trends in web development.</p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop" alt="Blog 1" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-meta">Oct 24, 2023 • Development</div>
+            <h3 class="blog-title">Why Laravel is Still the Best Choice for Startups in 2024</h3>
+            <p class="blog-excerpt">Exploring the robust features, security, and scalability that make Laravel the go-to framework.</p>
+            <a href="#" class="read-more">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop" alt="Blog 2" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-meta">Oct 15, 2023 • Mobile</div>
+            <h3 class="blog-title">Flutter vs React Native: Which One to Choose?</h3>
+            <p class="blog-excerpt">A comprehensive comparison to help you decide the right tech stack for your next mobile app.</p>
+            <a href="#" class="read-more">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop" alt="Blog 3" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-meta">Sep 28, 2023 • AI</div>
+            <h3 class="blog-title">Integrating AI Chatbots into Your Business Website</h3>
+            <p class="blog-excerpt">Learn how AI automation can improve customer support and boost sales conversions.</p>
+            <a href="#" class="read-more">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="glow" style="width: 400px; height: 400px; background: rgba(6,182,212,0.05); top: 20%; right: -10%;"></div>
+
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" alt="Codinec Team">
+          <div class="about-badges">
+            <span class="about-badge float" style="animation-delay: 0s;">Laravel Experts</span>
+            <span class="about-badge float" style="animation-delay: 0.3s;">React Developers</span>
+            <span class="about-badge float" style="animation-delay: 0.6s;">AI Integration</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="badge" style="margin-bottom: 1rem;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>About Us</span>
+          </div>
+          <h2>Best <span class="gradient-text">Web Development</span> Company in India</h2>
+          <p>Since 2019, Codinec has been at the forefront of digital innovation. We specialize in building scalable, high-performance web and mobile applications for startups and enterprises.</p>
+          <p>Our team of expert developers, designers, and strategists work collaboratively to deliver solutions that drive real business results.</p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="feature-text">150+ Projects</span>
+            </div>
+            <div class="about-feature">
+              <div class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="feature-text">5+ Years</span>
+            </div>
+            <div class="about-feature">
+              <div class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="feature-text">80+ Happy Clients</span>
+            </div>
+            <div class="about-feature">
+              <div class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="feature-text">24/7 Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="glow" style="width: 500px; height: 500px; background: rgba(16,185,129,0.06); bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="badge" style="margin-bottom: 1rem;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Contact Us</span>
+          </div>
+          <h2>Let&apos;s Build <span class="gradient-text">Something Amazing</span></h2>
+          <p>Ready to transform your idea into a powerful digital product? Get in touch with our team for a free consultation.</p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon" style="background: rgba(16,185,129,0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <div class="method-label">Email Us</div>
+                <div class="method-value">hello@codinec.com</div>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="method-icon" style="background: rgba(6,182,212,0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div>
+                <div class="method-label">Call Us</div>
+                <div class="method-value">+91 98765 43210</div>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="method-icon" style="background: rgba(139,92,246,0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <div class="method-label">Location</div>
+                <div class="method-value">India (Remote Friendly)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-input" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-input" placeholder="Project Inquiry">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Message</label>
+              <textarea class="form-textarea" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-line"></div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#hero" class="logo">
+              <div class="logo-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <span class="logo-text">Codi<span class="gradient-text">nec</span></span>
+            </a>
+            <p>Best Web Development Company in India since 2019. We build digital products that power startups and enterprises worldwide.</p>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">Mobile Apps</a></li>
+              <li><a href="#services">AI Solutions</a></li>
+              <li><a href="#services">Consulting</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Get tech insights and updates weekly.</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+              <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            &copy; 2026 Codinec. All rights reserved. Made with 
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f43f5e" stroke="#f43f5e" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            in India
+          </p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-dot"></div>
+    <span class="toast-text" id="toastText">Message sent successfully!</span>
+  </div>
+
+  <script>
+    // ==================== PAGE LOADER ====================
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('hidden');
+        initAnimations();
+      }, 500);
+    });
+
+    // ==================== NAVBAR ====================
+    const navbar = document.getElementById('navbar');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('active');
+    }
+
+    // ==================== 3D HERO ANIMATION ====================
+    function initHero3D() {
+      const stage = document.getElementById('hero3dStage');
+      const layers = document.querySelectorAll('.layer-card, .floating-shape');
+      
+      // Only enable full parallax on desktop to save performance on mobile
+      if (window.innerWidth > 1023) {
+        document.addEventListener('mousemove', (e) => {
+          const x = (e.clientX / window.innerWidth - 0.5) * 2;
+          const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+          gsap.to(stage, {
+            rotationY: x * 15,
+            rotationX: -y * 15,
+            duration: 1,
+            ease: 'power2.out'
+          });
+
+          layers.forEach((layer, index) => {
+            const depth = (index + 1) * 10;
+            gsap.to(layer, {
+              x: x * depth,
+              y: y * depth,
+              duration: 1,
+              ease: 'power2.out'
+            });
+          });
+        });
+      }
+
+      // Floating Animation (works on all screens)
+      layers.forEach((layer, index) => {
+        gsap.to(layer, {
+          y: '+=15',
+          duration: 2 + index * 0.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: index * 0.2
+        });
+      });
+    }
+
+    // ==================== HERO CANVAS ====================
+    function initHeroCanvas() {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.min(60, (width * height) / 15000);
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            size: Math.random() * 2 + 1
+          });
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.3)';
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.05)';
+
+        particles.forEach((p, i) => {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 150) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.stroke();
+            }
+          }
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', () => {
+        resize();
+        createParticles();
+      });
+      resize();
+      createParticles();
+      animate();
+    }
+
+    // ==================== GSAP ANIMATIONS ====================
+    function initAnimations() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Initialize Hero
+      initHero3D();
+      initHeroCanvas();
+
+      // Hero Text
+      gsap.from(".hero-title", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2
+      });
+      gsap.from(".hero-desc", {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.4
+      });
+
+      // Stats Counter
+      function animateCounter(id, target, suffix = '+') {
+        const el = document.getElementById(id);
+        if(!el) return;
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 40));
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(interval);
+          }
+          el.textContent = current + suffix;
+        }, 40);
+      }
+
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: 'top 80%',
+        onEnter: () => {
+          animateCounter('stat1', 150);
+          animateCounter('stat2', 80);
+          animateCounter('stat3', 5);
+        },
+        once: true
+      });
+
+      // Tree Hub
+      gsap.from('#treeHub', {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        ease: 'elastic.out(1, 0.5)',
+        scrollTrigger: {
+          trigger: '#services',
+          start: 'top 70%'
+        }
+      });
+
+      // Tree Nodes
+      const treeNodes = document.querySelectorAll('.tree-node');
+      treeNodes.forEach((node, i) => {
+        gsap.to(node, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: 0.5 + i * 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#treeNodes',
+            start: 'top 80%'
+          },
+          onComplete: () => node.classList.add('animated')
+        });
+      });
+
+      // Recent Projects
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 60,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#projects',
+            start: 'top 75%'
+          }
+        });
+      });
+
+      // Products
+      const productCards = document.querySelectorAll('.product-card');
+      productCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 60,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#productsGrid',
+            start: 'top 80%'
+          }
+        });
+      });
+
+      // Testimonials
+      const testimonialCards = document.querySelectorAll('.testimonial-card');
+      testimonialCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 75%'
+          }
+        });
+      });
+
+      // Blog
+      const blogCards = document.querySelectorAll('.blog-card');
+      blogCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#blog',
+            start: 'top 75%'
+          }
+        });
+      });
+
+      // About
+      gsap.from('.about-image', {
+        x: -80,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top 70%'
+        }
+      });
+      gsap.from('.about-content', {
+        x: 80,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top 70%'
+        }
+      });
+
+      // Contact
+      gsap.from('.contact-info', {
+        x: -60,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#contact',
+          start: 'top 70%'
+        }
+      });
+      gsap.from('.contact-form', {
+        x: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#contact',
+          start: 'top 70%'
+        }
+      });
+    }
+
+    // ==================== FORM HANDLERS ====================
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+      toastText.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Message sent successfully! We will get back to you soon.');
+      e.target.reset();
+    });
+
+    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Subscribed successfully! Check your inbox.');
+      e.target.reset();
+    });
+
+    // ==================== SMOOTH SCROLL ====================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

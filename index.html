@@ -30,7 +30,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    
     html { scroll-behavior: smooth; }
     
     body {
@@ -66,9 +65,9 @@
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
-    @media (min-width: 640px) { .container { padding: 0 1.5rem; } }
+    @media (min-width: 640px) { .container { padding: 0 2rem; } }
     @media (min-width: 1024px) { .container { padding: 0 2rem; } }
 
     /* Typography */
@@ -83,7 +82,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .gradient-text-alt {
       background: linear-gradient(135deg, #f43f5e, #f97316, #facc15);
       -webkit-background-clip: text;
@@ -125,7 +123,6 @@
       transform: translateY(-2px);
       box-shadow: 0 15px 40px rgba(16, 185, 129, 0.35);
     }
-
     .btn-ghost {
       display: inline-flex;
       align-items: center;
@@ -167,39 +164,6 @@
       transform: translateY(-4px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
-
-    /* Skeleton */
-    .skeleton {
-      background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 100%);
-      background-size: 200% 100%;
-      animation: skeleton 1.5s ease-in-out infinite;
-      border-radius: 0.75rem;
-    }
-    @keyframes skeleton {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Float Animation */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .float { animation: float 3s ease-in-out infinite; }
-
-    /* Orbit Animation */
-    @keyframes orbit {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    .orbit { animation: orbit 20s linear infinite; }
-
-    /* Pulse Glow */
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(16,185,129,0.2); }
-      50% { box-shadow: 0 0 40px rgba(16,185,129,0.4); }
-    }
-    .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
 
     /* ==================== NAVBAR ==================== */
     .navbar {
@@ -299,13 +263,14 @@
       color: white;
     }
 
-    /* ==================== HERO SECTION (UPDATED) ==================== */
+    /* ==================== HERO SECTION ==================== */
     #hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
+      padding-top: 80px; /* Navbar offset */
     }
     #hero-canvas {
       position: absolute;
@@ -320,35 +285,41 @@
       z-index: 10;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
-      padding: 7rem 0 5rem;
     }
     @media (min-width: 1024px) {
       .hero-content {
         grid-template-columns: 1fr 1fr;
-        padding: 0;
+        gap: 4rem;
+        padding: 2rem 0;
       }
     }
     .hero-text { text-align: center; }
     @media (min-width: 1024px) { .hero-text { text-align: left; } }
+    
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
       color: white;
       margin-bottom: 1.5rem;
     }
-    @media (min-width: 640px) { .hero-title { font-size: 3.5rem; } }
+    @media (min-width: 640px) { .hero-title { font-size: 3rem; } }
     @media (min-width: 1024px) { .hero-title { font-size: 4rem; } }
     
     .hero-desc {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: #94a3b8;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       max-width: 600px;
       line-height: 1.7;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 1024px) {
+      .hero-desc { margin-left: 0; margin-right: 0; font-size: 1.125rem; }
     }
     
     .hero-buttons {
@@ -356,28 +327,29 @@
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
     @media (min-width: 1024px) { .hero-buttons { justify-content: flex-start; } }
 
-    /* Updated Hero Stats */
     .hero-stats {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       padding-top: 1rem;
       border-top: 1px solid rgba(255,255,255,0.05);
+      flex-wrap: wrap;
     }
-    @media (min-width: 1024px) { .hero-stats { justify-content: flex-start; } }
+    @media (min-width: 1024px) { .hero-stats { justify-content: flex-start; gap: 2rem; } }
     .stat-item { text-align: center; }
     .stat-value {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: white;
     }
+    @media (min-width: 640px) { .stat-value { font-size: 1.875rem; } }
     .stat-label {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       color: #64748b;
       font-weight: 500;
       margin-top: 0.25rem;
@@ -385,44 +357,66 @@
       letter-spacing: 1px;
     }
 
-    /* ==================== 3D HERO VISUAL (CSS 3D + GSAP) ==================== */
+    /* ==================== 3D HERO VISUAL (Responsive Fix) ==================== */
     .hero-visual {
       position: relative;
-      height: 500px;
+      height: 350px;
       display: flex;
       align-items: center;
       justify-content: center;
-      perspective: 1200px; /* Key for 3D effect */
+      perspective: 1000px;
     }
-    @media (min-width: 640px) { .hero-visual { height: 550px; } }
-    @media (min-width: 1024px) { .hero-visual { height: 600px; } }
-
-    .hero-3d-stage {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transform: rotateX(10deg) rotateY(-10deg); /* Initial Angle */
-      transition: transform 0.1s ease-out; /* Smooth mouse follow */
+    @media (min-width: 640px) { .hero-visual { height: 450px; } }
+    
+    /* Desktop Layout */
+    @media (min-width: 1024px) {
+      .hero-visual { height: 550px; }
+      .hero-3d-stage {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transform: rotateX(10deg) rotateY(-10deg);
+        transition: transform 0.1s ease-out;
+      }
     }
 
-    /* Floating Layers */
+    /* Mobile Layout Fix: Move to Background */
+    @media (max-width: 1023px) {
+      .hero-visual {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Behind text */
+        opacity: 0.3; /* Subtle */
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero-3d-stage {
+        transform: scale(0.6) translateY(20%);
+        width: 100%;
+        height: 100%;
+      }
+      /* Hide text inside visual on mobile to avoid noise */
+      .layer-card { opacity: 0.5; } 
+    }
+
     .layer-card {
       position: absolute;
       border-radius: 1.25rem;
-      background: rgba(13, 21, 37, 0.7);
+      background: rgba(13, 21, 37, 0.8);
       backdrop-filter: blur(15px);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
       box-shadow: 0 25px 50px rgba(0,0,0,0.5);
       padding: 1.5rem;
       transform-style: preserve-3d;
     }
-
-    /* Code Snippet Window */
     .layer-code {
       top: 20%;
       left: 50%;
-      width: 320px;
+      width: 300px;
       transform: translate(-50%, -50%) translateZ(60px);
     }
     @media (min-width: 768px) {
@@ -431,36 +425,26 @@
         transform: translateZ(80px) rotateY(-10deg);
       }
     }
-
-    .code-header {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
+    .code-header { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
     .code-dot { width: 10px; height: 10px; border-radius: 50%; }
     .code-dot.red { background: #ef4444; }
     .code-dot.yellow { background: #f59e0b; }
     .code-dot.green { background: #10b981; }
-
     .code-block {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #e2e8f0;
       line-height: 1.6;
     }
-    .code-keyword { color: #c084fc; } /* Purple */
-    .code-func { color: #60a5fa; } /* Blue */
-    .code-str { color: #facc15; } /* Yellow */
+    .code-keyword { color: #c084fc; }
+    .code-func { color: #60a5fa; }
+    .code-str { color: #facc15; }
 
-    /* Abstract Tech Card */
     .layer-tech {
       bottom: 15%;
       right: 0;
-      width: 260px;
+      width: 240px;
       transform: translateZ(40px) rotateY(15deg) rotateX(5deg);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
     }
     @media (min-width: 768px) {
       .layer-tech {
@@ -468,29 +452,17 @@
         transform: translateZ(100px) rotateY(10deg) rotateX(-5deg);
       }
     }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-    }
+    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
     .tech-icon-box {
       aspect-ratio: 1;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.05);
       border-radius: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s;
     }
-    .tech-icon-box:hover {
-      background: rgba(16, 185, 129, 0.1);
-      border-color: #10b981;
-    }
-    .tech-icon-box svg { width: 24px; height: 24px; stroke-width: 1.5; }
+    .tech-icon-box svg { width: 20px; height: 20px; stroke-width: 1.5; }
 
-    /* Floating Geometry */
     .floating-shape {
       position: absolute;
       border-radius: 1rem;
@@ -500,24 +472,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
     }
-    
     .shape-1 {
       top: 0; right: 20%;
-      width: 100px; height: 100px;
+      width: 80px; height: 80px;
       transform: translateZ(120px) rotate(45deg);
     }
     .shape-2 {
       bottom: 10%; left: 10%;
-      width: 80px; height: 80px;
+      width: 60px; height: 60px;
       transform: translateZ(60px);
       border-radius: 50%;
       border-color: rgba(139, 92, 246, 0.3);
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(244, 63, 94, 0.05));
-      box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
     }
 
+    /* Scroll Indicator */
     .scroll-indicator {
       position: absolute;
       bottom: 2rem;
@@ -528,6 +498,9 @@
       align-items: center;
       gap: 0.5rem;
       z-index: 20;
+    }
+    @media (min-width: 768px) {
+      .scroll-indicator { display: none; } /* Hide on tablet/desktop */
     }
     .scroll-text {
       font-size: 0.625rem;
@@ -557,7 +530,7 @@
       50% { transform: translateY(6px); opacity: 0.5; }
     }
 
-    /* ==================== SERVICES TREE SECTION ==================== */
+    /* ==================== SERVICES TREE SECTION (Responsive Fix) ==================== */
     #services {
       position: relative;
       padding: 5rem 0;
@@ -565,26 +538,26 @@
     }
     @media (min-width: 640px) { #services { padding: 7rem 0; } }
     @media (min-width: 1024px) { #services { padding: 8rem 0; } }
+    
     .section-header {
       text-align: center;
       max-width: 48rem;
       margin: 0 auto 4rem;
     }
     .section-title {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
       font-weight: 800;
       color: white;
       margin-bottom: 1.25rem;
     }
-    @media (min-width: 640px) { .section-title { font-size: 2.25rem; } }
-    @media (min-width: 1024px) { .section-title { font-size: 2.75rem; } }
+    @media (min-width: 640px) { .section-title { font-size: 2.5rem; } }
+    @media (min-width: 1024px) { .section-title { font-size: 3rem; } }
     .section-desc {
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       color: #94a3b8;
     }
-    @media (min-width: 640px) { .section-desc { font-size: 1rem; } }
+    @media (min-width: 640px) { .section-desc { font-size: 1.1rem; } }
 
-    /* Tree Graph Container */
     .tree-container {
       position: relative;
       max-width: 1100px;
@@ -594,9 +567,9 @@
     /* Central Hub */
     .tree-hub {
       position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 3rem;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 4rem;
       border-radius: 50%;
       background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.1));
       border: 2px solid rgba(16, 185, 129, 0.3);
@@ -608,80 +581,58 @@
       box-shadow: 0 0 60px rgba(16, 185, 129, 0.2);
     }
     @media (min-width: 768px) {
-      .tree-hub {
-        width: 200px;
-        height: 200px;
-      }
+      .tree-hub { width: 180px; height: 180px; }
     }
     .tree-hub-icon {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       border-radius: 1rem;
       background: linear-gradient(135deg, #10b981, #06b6d4);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
     }
     .tree-hub-title {
       font-weight: 700;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       color: white;
       text-align: center;
     }
-    @media (min-width: 768px) { .tree-hub-title { font-size: 1rem; } }
     .tree-hub-subtitle {
-      font-size: 0.625rem;
+      font-size: 0.6rem;
       color: #64748b;
       text-align: center;
     }
 
-    /* Tree Branches SVG */
-    .tree-lines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .tree-line {
-      stroke: url(#lineGradient);
-      stroke-width: 2;
-      fill: none;
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-    }
-    .tree-line.animated {
-      animation: drawLine 1.5s ease forwards;
-    }
-    @keyframes drawLine {
-      to { stroke-dashoffset: 0; }
-    }
-
-    /* Service Nodes */
+    /* Tree Nodes Grid */
     .tree-nodes {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr; /* Mobile: 1 column */
+      gap: 2rem;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
     }
     @media (min-width: 640px) {
       .tree-nodes {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        max-width: 700px;
+        gap: 2.5rem;
       }
     }
     @media (min-width: 1024px) {
       .tree-nodes {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1rem;
+        grid-template-columns: repeat(5, 1fr); /* Desktop: 5 columns */
+        max-width: 100%;
+        gap: 1.5rem;
       }
     }
+
     .tree-node {
       position: relative;
-      padding: 1.25rem;
+      padding: 1.5rem;
       background: linear-gradient(145deg, rgba(13, 21, 37, 0.95), rgba(10, 15, 26, 0.98));
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 1rem;
@@ -700,6 +651,8 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Connector Lines */
     .node-connector {
       position: absolute;
       top: -20px;
@@ -708,11 +661,10 @@
       width: 2px;
       height: 20px;
       background: linear-gradient(180deg, var(--node-color, #10b981), transparent);
-      display: none;
     }
-    @media (min-width: 1024px) {
-      .node-connector { display: block; }
-    }
+    /* Hide connectors on mobile to look cleaner */
+    @media (max-width: 1023px) { .node-connector { display: none; } }
+
     .node-icon {
       width: 3rem;
       height: 3rem;
@@ -720,45 +672,219 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 0.75rem;
+      margin: 0 auto 1rem;
       transition: all 0.3s;
     }
-    .tree-node:hover .node-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
+    .tree-node:hover .node-icon { transform: scale(1.1) rotate(5deg); }
     .node-title {
       font-weight: 600;
-      font-size: 0.8125rem;
+      font-size: 0.9rem;
       color: white;
       margin-bottom: 0.5rem;
       line-height: 1.3;
     }
     .node-desc {
-      font-size: 0.6875rem;
+      font-size: 0.75rem;
       color: #64748b;
       line-height: 1.5;
-      display: none;
-    }
-    @media (min-width: 640px) { .node-desc { display: block; } }
-
-    /* Particle Canvas for Services */
-    #services-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
-      pointer-events: none;
     }
 
-    /* ==================== PRODUCTS SECTION ==================== */
-    #products {
+    /* ==================== RECENT PROJECTS SECTION (NEW) ==================== */
+    #projects {
       position: relative;
       padding: 5rem 0;
+      background: rgba(13, 21, 37, 0.3);
+    }
+    @media (min-width: 640px) { #projects { padding: 7rem 0; } }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s;
+    }
+    .project-card:hover { transform: translateY(-8px); }
+    
+    .project-img-wrapper {
+      position: relative;
+      height: 220px;
       overflow: hidden;
     }
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .project-card:hover .project-img-wrapper img { transform: scale(1.1); }
+    
+    .project-content { padding: 1.5rem; }
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .project-tag {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      font-weight: 600;
+    }
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #10b981;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ==================== TESTIMONIALS SECTION (NEW) ==================== */
+    #testimonials {
+      position: relative;
+      padding: 5rem 0;
+    }
+    @media (min-width: 640px) { #testimonials { padding: 7rem 0; } }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .testimonial-card {
+      background: linear-gradient(145deg, rgba(13, 21, 37, 0.95), rgba(10, 15, 26, 0.98));
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 1.25rem;
+      position: relative;
+    }
+    .quote-icon {
+      font-size: 3rem;
+      color: rgba(16, 185, 129, 0.1);
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: serif;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .client-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .client-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .client-details h4 {
+      font-size: 1rem;
+      color: white;
+      margin-bottom: 0.1rem;
+    }
+    .client-details span {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* ==================== BLOG SECTION (NEW) ==================== */
+    #blog {
+      position: relative;
+      padding: 5rem 0;
+      background: rgba(13, 21, 37, 0.3);
+    }
+    @media (min-width: 640px) { #blog { padding: 7rem 0; } }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .blog-card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s;
+    }
+    .blog-card:hover { transform: translateY(-5px); }
+    
+    .blog-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .blog-content { padding: 1.5rem; }
+    .blog-meta {
+      font-size: 0.75rem;
+      color: #10b981;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .blog-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .blog-excerpt {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin-bottom: 1.25rem;
+    }
+    .read-more {
+      font-size: 0.875rem;
+      color: #06b6d4;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* ==================== PRODUCTS & OTHER SECTIONS ==================== */
+    #products { position: relative; padding: 5rem 0; overflow: hidden; }
     @media (min-width: 640px) { #products { padding: 7rem 0; } }
+    
     .products-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -766,13 +892,14 @@
     }
     @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+
     .product-card {
       position: relative;
       background: linear-gradient(145deg, rgba(13, 21, 37, 0.95), rgba(10, 15, 26, 0.98));
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 1.25rem;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s;
     }
     .product-card:hover {
       transform: translateY(-8px);
@@ -790,9 +917,7 @@
       object-fit: cover;
       transition: transform 0.5s;
     }
-    .product-card:hover .product-image img {
-      transform: scale(1.05);
-    }
+    .product-card:hover .product-image img { transform: scale(1.05); }
     .product-image-overlay {
       position: absolute;
       inset: 0;
@@ -811,40 +936,8 @@
       padding: 0.25rem 0.75rem;
       border-radius: 999px;
     }
-    .product-placeholder {
-      height: 180px;
-      background: linear-gradient(135deg, rgba(10, 15, 26, 1), rgba(13, 21, 37, 1));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .placeholder-icon {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 1rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-    }
-    .placeholder-text {
-      font-size: 0.6875rem;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .product-content {
-      padding: 1.5rem;
-    }
-    .product-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
+    .product-content { padding: 1.5rem; }
+    .product-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
     .product-icon {
       width: 3rem;
       height: 3rem;
@@ -854,35 +947,15 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .product-title {
-      font-weight: 700;
-      font-size: 1.125rem;
-      color: white;
-      margin-bottom: 0.25rem;
-    }
-    .product-subtitle {
-      font-size: 0.6875rem;
-      color: #64748b;
-    }
+    .product-title { font-weight: 700; font-size: 1.125rem; color: white; margin-bottom: 0.25rem; }
+    .product-subtitle { font-size: 0.6875rem; color: #64748b; }
     .product-desc {
       font-size: 0.8125rem;
       color: #94a3b8;
       line-height: 1.6;
       margin-bottom: 1.25rem;
     }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .product-price-label {
-      font-size: 0.6875rem;
-      color: #64748b;
-    }
-    .product-price {
-      font-size: 1.125rem;
-      font-weight: 700;
-    }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; }
     .product-link {
       font-size: 0.75rem;
       font-weight: 600;
@@ -891,22 +964,10 @@
       gap: 0.25rem;
       transition: gap 0.3s;
     }
-    .product-card:hover .product-link {
-      gap: 0.5rem;
-    }
-    .product-status {
-      padding: 0.375rem 0.75rem;
-      font-size: 0.625rem;
-      font-weight: 600;
-      border-radius: 999px;
-    }
+    .product-card:hover .product-link { gap: 0.5rem; }
 
-    /* ==================== ABOUT SECTION ==================== */
-    #about {
-      position: relative;
-      padding: 5rem 0;
-      overflow: hidden;
-    }
+    /* ==================== ABOUT & CONTACT ==================== */
+    #about { position: relative; padding: 5rem 0; overflow: hidden; }
     @media (min-width: 640px) { #about { padding: 7rem 0; } }
     .about-grid {
       display: grid;
@@ -922,11 +983,7 @@
       overflow: hidden;
     }
     @media (min-width: 640px) { .about-image { height: 450px; } }
-    .about-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; }
     .about-badges {
       position: absolute;
       bottom: 1.5rem;
@@ -946,12 +1003,7 @@
       font-weight: 500;
       color: white;
     }
-    .about-content h2 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 1.5rem;
-    }
+    .about-content h2 { font-size: 1.6rem; font-weight: 800; color: white; margin-bottom: 1.5rem; }
     @media (min-width: 640px) { .about-content h2 { font-size: 2.25rem; } }
     .about-content p {
       font-size: 0.9375rem;
@@ -959,17 +1011,8 @@
       line-height: 1.8;
       margin-bottom: 1.25rem;
     }
-    .about-features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .about-feature {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .about-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+    .about-feature { display: flex; align-items: center; gap: 0.75rem; }
     .feature-check {
       width: 1.5rem;
       height: 1.5rem;
@@ -980,43 +1023,16 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .feature-text {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: white;
-    }
+    .feature-text { font-size: 0.8125rem; font-weight: 500; color: white; }
 
-    /* ==================== CONTACT SECTION ==================== */
-    #contact {
-      position: relative;
-      padding: 5rem 0;
-      overflow: hidden;
-    }
+    #contact { position: relative; padding: 5rem 0; overflow: hidden; }
     @media (min-width: 640px) { #contact { padding: 7rem 0; } }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
     @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
-    .contact-info h2 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 1.25rem;
-    }
+    .contact-info h2 { font-size: 1.6rem; font-weight: 800; color: white; margin-bottom: 1.25rem; }
     @media (min-width: 640px) { .contact-info h2 { font-size: 2.25rem; } }
-    .contact-info p {
-      font-size: 0.9375rem;
-      color: #94a3b8;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-    .contact-methods {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .contact-info p { font-size: 0.9375rem; color: #94a3b8; line-height: 1.7; margin-bottom: 2rem; }
+    .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
     .contact-method {
       display: flex;
       align-items: center;
@@ -1027,10 +1043,7 @@
       border-radius: 0.875rem;
       transition: all 0.3s;
     }
-    .contact-method:hover {
-      background: rgba(16, 185, 129, 0.05);
-      border-color: rgba(16, 185, 129, 0.2);
-    }
+    .contact-method:hover { background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2); }
     .method-icon {
       width: 2.5rem;
       height: 2.5rem;
@@ -1040,32 +1053,16 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .method-label {
-      font-size: 0.6875rem;
-      color: #64748b;
-      margin-bottom: 0.125rem;
-    }
-    .method-value {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: white;
-    }
+    .method-label { font-size: 0.6875rem; color: #64748b; margin-bottom: 0.125rem; }
+    .method-value { font-size: 0.875rem; font-weight: 600; color: white; }
     .contact-form {
       padding: 2rem;
       background: linear-gradient(145deg, rgba(13, 21, 37, 0.95), rgba(10, 15, 26, 0.98));
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 1.5rem;
     }
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-    .form-label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #94a3b8;
-      margin-bottom: 0.5rem;
-    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 0.75rem; font-weight: 500; color: #94a3b8; margin-bottom: 0.5rem; }
     .form-input, .form-textarea {
       width: 100%;
       padding: 0.875rem 1rem;
@@ -1082,15 +1079,8 @@
       border-color: #10b981;
       box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
     }
-    .form-textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
+    .form-textarea { min-height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
     @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
 
     /* ==================== FOOTER ==================== */
@@ -1099,13 +1089,8 @@
       overflow: hidden;
       background: linear-gradient(180deg, var(--background), #030508);
     }
-    .footer-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
-    }
-    .footer-content {
-      padding: 4rem 0 2rem;
-    }
+    .footer-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent); }
+    .footer-content { padding: 4rem 0 2rem; }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1121,10 +1106,7 @@
       margin: 1.25rem 0 1.5rem;
       max-width: 320px;
     }
-    .social-links {
-      display: flex;
-      gap: 0.75rem;
-    }
+    .social-links { display: flex; gap: 0.75rem; }
     .social-link {
       width: 2.5rem;
       height: 2.5rem;
@@ -1137,11 +1119,7 @@
       color: #64748b;
       transition: all 0.3s;
     }
-    .social-link:hover {
-      background: #10b981;
-      color: white;
-      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-    }
+    .social-link:hover { background: #10b981; color: white; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3); }
     .footer-links h4 {
       font-size: 0.75rem;
       font-weight: 700;
@@ -1150,14 +1128,8 @@
       letter-spacing: 0.1em;
       margin-bottom: 1.25rem;
     }
-    .footer-links ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .footer-links li {
-      margin-bottom: 0.75rem;
-    }
+    .footer-links ul { list-style: none; margin: 0; padding: 0; }
+    .footer-links li { margin-bottom: 0.75rem; }
     .footer-links a {
       font-size: 0.875rem;
       color: #64748b;
@@ -1167,24 +1139,8 @@
       transition: color 0.3s;
     }
     .footer-links a:hover { color: #10b981; }
-    .footer-links a::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #334155;
-      transition: background 0.3s;
-    }
-    .footer-links a:hover::before { background: #10b981; }
-    .footer-newsletter p {
-      font-size: 0.875rem;
-      color: #64748b;
-      margin-bottom: 1rem;
-    }
-    .newsletter-form {
-      display: flex;
-      gap: 0.5rem;
-    }
+    .footer-newsletter p { font-size: 0.875rem; color: #64748b; margin-bottom: 1rem; }
+    .newsletter-form { display: flex; gap: 0.5rem; }
     .newsletter-input {
       flex: 1;
       padding: 0.75rem 1rem;
@@ -1193,10 +1149,6 @@
       border-radius: 0.75rem;
       color: white;
       font-size: 0.875rem;
-    }
-    .newsletter-input:focus {
-      outline: none;
-      border-color: #10b981;
     }
     .newsletter-btn {
       width: 3rem;
@@ -1212,25 +1164,7 @@
       transition: all 0.3s;
       flex-shrink: 0;
     }
-    .newsletter-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-    }
-    .trust-badges {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.6875rem;
-      color: #64748b;
-    }
+    .newsletter-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
     .footer-bottom {
       display: flex;
       flex-direction: column;
@@ -1241,22 +1175,9 @@
       border-top: 1px solid rgba(255,255,255,0.05);
     }
     @media (min-width: 640px) { .footer-bottom { flex-direction: row; } }
-    .footer-copyright {
-      font-size: 0.875rem;
-      color: #475569;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .footer-legal {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .footer-legal a {
-      font-size: 0.875rem;
-      color: #475569;
-      transition: color 0.3s;
-    }
+    .footer-copyright { font-size: 0.875rem; color: #475569; }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.875rem; color: #475569; transition: color 0.3s; }
     .footer-legal a:hover { color: #10b981; }
 
     /* Toast */
@@ -1281,10 +1202,7 @@
       transition: all 0.5s;
       box-shadow: 0 15px 50px rgba(0,0,0,0.6);
     }
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
+    .toast.show { transform: translateY(0); opacity: 1; }
     .toast-dot {
       width: 1.25rem;
       height: 1.25rem;
@@ -1302,11 +1220,7 @@
       border-radius: 50%;
       background: #10b981;
     }
-    .toast-text {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #e0e0e0;
-    }
+    .toast-text { font-size: 0.875rem; font-weight: 500; color: #e0e0e0; }
 
     /* Page Loader */
     .page-loader {
@@ -1319,10 +1233,7 @@
       z-index: 9999;
       transition: opacity 0.5s, visibility 0.5s;
     }
-    .page-loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
+    .page-loader.hidden { opacity: 0; visibility: hidden; }
     .loader-ring {
       width: 60px;
       height: 60px;
@@ -1331,13 +1242,7 @@
       border-top-color: #10b981;
       animation: spin 1s linear infinite;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Responsive helpers */
-    .hidden-mobile { display: none; }
-    @media (min-width: 640px) { .hidden-mobile { display: block; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -1362,8 +1267,9 @@
         <div class="nav-links">
           <a href="#hero" class="nav-link">Home</a>
           <a href="#services" class="nav-link">Services</a>
+          <a href="#projects" class="nav-link">Projects</a>
           <a href="#products" class="nav-link">Products</a>
-          <a href="#about" class="nav-link">About</a>
+          <a href="#blog" class="nav-link">Blog</a>
           <a href="#contact" class="nav-link">Contact</a>
           <a href="#contact" class="btn-primary" style="padding: 0.625rem 1.25rem;">Get Quote</a>
         </div>
@@ -1378,17 +1284,15 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#hero" onclick="closeMobileMenu()">Home</a>
     <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#projects" onclick="closeMobileMenu()">Projects</a>
     <a href="#products" onclick="closeMobileMenu()">Products</a>
-    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#blog" onclick="closeMobileMenu()">Blog</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
   </div>
 
   <!-- Hero Section -->
   <section id="hero">
-    <!-- Simple Network Background (Canvas) -->
     <canvas id="hero-canvas"></canvas>
-    
-    <!-- Glows -->
     <div class="glow" style="width: 500px; height: 500px; background: rgba(16,185,129,0.08); top: -100px; right: -10%;"></div>
     <div class="glow" style="width: 400px; height: 400px; background: rgba(6,182,212,0.06); bottom: 10%; left: -15%;"></div>
 
@@ -1400,7 +1304,6 @@
             <span>Best Web Development Company in India</span>
           </div>
           
-          <!-- Updated Text -->
           <h1 class="hero-title">
             We Build Solutions, <br>
             <span class="gradient-text">Not Just Code</span>
@@ -1436,11 +1339,10 @@
           </div>
         </div>
 
-        <!-- New 3D Hero Visual -->
+        <!-- 3D Hero Visual (Fixed for Mobile) -->
         <div class="hero-visual">
           <div class="hero-3d-stage" id="hero3dStage">
-            
-            <!-- Layer 1: Code Snippet (Closer to viewer) -->
+            <!-- Layer 1: Code Snippet -->
             <div class="layer-card layer-code">
               <div class="code-header">
                 <div class="code-dot red"></div>
@@ -1460,7 +1362,6 @@
             <div class="layer-card layer-tech">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
                 <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">TECH STACK</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
               </div>
               <div class="tech-grid">
                 <div class="tech-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
@@ -1472,14 +1373,13 @@
               </div>
             </div>
 
-            <!-- Layer 3: Floating Shapes (Background) -->
+            <!-- Layer 3: Floating Shapes -->
             <div class="floating-shape shape-1">
                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <div class="floating-shape shape-2">
                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
-
           </div>
         </div>
       </div>
@@ -1494,10 +1394,8 @@
     </div>
   </section>
 
-  <!-- Services Section with Tree Graph -->
+  <!-- Services Section -->
   <section id="services">
-    <canvas id="services-canvas"></canvas>
-    
     <div class="glow" style="width: 500px; height: 500px; background: rgba(16,185,129,0.05); top: 10%; right: -15%;"></div>
     <div class="glow" style="width: 400px; height: 400px; background: rgba(139,92,246,0.04); bottom: 10%; left: -10%;"></div>
 
@@ -1511,7 +1409,7 @@
           End-to-End <span class="gradient-text">Development Services</span>
         </h2>
         <p class="section-desc">
-          From idea to deployment — we cover every aspect of your digital journey with cutting-edge technology and expert craftsmanship.
+          From idea to deployment — we cover every aspect of your digital journey with cutting-edge technology.
         </p>
       </div>
 
@@ -1527,103 +1425,175 @@
 
         <!-- Tree Nodes -->
         <div class="tree-nodes" id="treeNodes">
-          <!-- Row 1 -->
+          <!-- Node 1 -->
           <div class="tree-node" style="--node-color: #10b981; --node-glow: rgba(16,185,129,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #10b981, transparent);"></div>
             <div class="node-icon" style="background: rgba(16,185,129,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
             <div class="node-title">PHP Framework Development</div>
-            <p class="node-desc">Laravel & CodeIgniter 4 with modern architecture</p>
+            <p class="node-desc">Laravel & CodeIgniter 4</p>
           </div>
 
+          <!-- Node 2 -->
           <div class="tree-node" style="--node-color: #06b6d4; --node-glow: rgba(6,182,212,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #06b6d4, transparent);"></div>
             <div class="node-icon" style="background: rgba(6,182,212,0.1);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             </div>
             <div class="node-title">Full-Stack Web Development</div>
-            <p class="node-desc">React, Vue.js, Node.js & modern frameworks</p>
+            <p class="node-desc">React, Vue.js, Node.js</p>
           </div>
 
+          <!-- Node 3 -->
           <div class="tree-node" style="--node-color: #8b5cf6; --node-glow: rgba(139,92,246,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #8b5cf6, transparent);"></div>
             <div class="node-icon" style="background: rgba(139,92,246,0.1);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
             </div>
             <div class="node-title">Custom Web Applications</div>
-            <p class="node-desc">Tailored solutions for your business needs</p>
+            <p class="node-desc">Tailored business solutions</p>
           </div>
 
+          <!-- Node 4 -->
           <div class="tree-node" style="--node-color: #14b8a6; --node-glow: rgba(20,184,166,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #14b8a6, transparent);"></div>
             <div class="node-icon" style="background: rgba(20,184,166,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
             </div>
             <div class="node-title">Database Design</div>
-            <p class="node-desc">MySQL, PostgreSQL optimization & management</p>
+            <p class="node-desc">MySQL, PostgreSQL</p>
           </div>
 
+          <!-- Node 5 -->
           <div class="tree-node" style="--node-color: #10b981; --node-glow: rgba(16,185,129,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #10b981, transparent);"></div>
             <div class="node-icon" style="background: rgba(16,185,129,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
             </div>
             <div class="node-title">Maintenance & Support</div>
-            <p class="node-desc">Updates, security patches & bug fixes</p>
+            <p class="node-desc">24/7 Updates & Fixes</p>
           </div>
 
-          <!-- Row 2 -->
+          <!-- Node 6 -->
           <div class="tree-node" style="--node-color: #06b6d4; --node-glow: rgba(6,182,212,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #06b6d4, transparent);"></div>
             <div class="node-icon" style="background: rgba(6,182,212,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </div>
             <div class="node-title">Tools & Automation</div>
-            <p class="node-desc">Automated scripts & workflow tools</p>
+            <p class="node-desc">Automated workflows</p>
           </div>
 
+          <!-- Node 7 -->
           <div class="tree-node" style="--node-color: #8b5cf6; --node-glow: rgba(139,92,246,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #8b5cf6, transparent);"></div>
             <div class="node-icon" style="background: rgba(139,92,246,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
             </div>
             <div class="node-title">Python Scripting</div>
-            <p class="node-desc">Data processing & web scraping</p>
+            <p class="node-desc">Data processing</p>
           </div>
 
+          <!-- Node 8 -->
           <div class="tree-node" style="--node-color: #14b8a6; --node-glow: rgba(20,184,166,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #14b8a6, transparent);"></div>
             <div class="node-icon" style="background: rgba(20,184,166,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
             </div>
             <div class="node-title">Mobile App Development</div>
-            <p class="node-desc">Flutter & React Native apps</p>
+            <p class="node-desc">Flutter & React Native</p>
           </div>
 
+          <!-- Node 9 -->
           <div class="tree-node" style="--node-color: #10b981; --node-glow: rgba(16,185,129,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #10b981, transparent);"></div>
             <div class="node-icon" style="background: rgba(16,185,129,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
             </div>
             <div class="node-title">AI & Chatbots</div>
-            <p class="node-desc">WhatsApp bots & support automation</p>
+            <p class="node-desc">WhatsApp bots</p>
           </div>
 
+          <!-- Node 10 -->
           <div class="tree-node" style="--node-color: #06b6d4; --node-glow: rgba(6,182,212,0.15);">
             <div class="node-connector" style="background: linear-gradient(180deg, #06b6d4, transparent);"></div>
             <div class="node-icon" style="background: rgba(6,182,212,0.1);">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </div>
             <div class="node-title">API Development</div>
-            <p class="node-desc">REST APIs & third-party integrations</p>
+            <p class="node-desc">REST APIs & Integrations</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
+  <!-- RECENT PROJECTS SECTION (NEW) -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge" style="margin-bottom: 1.25rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          <span>Our Recent Projects</span>
+        </div>
+        <h2 class="section-title">Real projects. <span class="gradient-text">Real results.</span></h2>
+        <p class="section-desc">See how we've helped businesses grow with our custom solutions.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop" alt="FinTech App">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">FinTech</span>
+              <span class="project-tag">Mobile App</span>
+            </div>
+            <h3 class="project-title">PayFlow Finance</h3>
+            <p class="project-desc">A secure payment gateway and wallet application for small businesses, processing over $1M monthly transactions.</p>
+            <a href="#" class="project-link">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=500&h=300&fit=crop" alt="E-Commerce">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">E-Commerce</span>
+              <span class="project-tag">Web App</span>
+            </div>
+            <h3 class="project-title">StyleHub Marketplace</h3>
+            <p class="project-desc">A multi-vendor fashion marketplace featuring AI-based recommendations and real-time inventory management.</p>
+            <a href="#" class="project-link">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=300&fit=crop" alt="HealthTech">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">HealthTech</span>
+              <span class="project-tag">SaaS</span>
+            </div>
+            <h3 class="project-title">MediCare Connect</h3>
+            <p class="project-desc">Telemedicine platform connecting patients with doctors, featuring video calls and digital prescriptions.</p>
+            <a href="#" class="project-link">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
   <section id="products">
     <div class="glow" style="width: 500px; height: 500px; background: rgba(16,185,129,0.06); top: -15%; left: 50%; transform: translateX(-50%);"></div>
 
@@ -1633,12 +1603,8 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
           <span>Our Products</span>
         </div>
-        <h2 class="section-title">
-          Innovative <span class="gradient-text">Product Solutions</span>
-        </h2>
-        <p class="section-desc">
-          Ready-to-deploy products built with the latest technology. Explore our complete product lineup.
-        </p>
+        <h2 class="section-title">Innovative <span class="gradient-text">Product Solutions</span></h2>
+        <p class="section-desc">Ready-to-deploy products built with the latest technology.</p>
       </div>
 
       <div class="products-grid" id="productsGrid">
@@ -1656,19 +1622,12 @@
               </div>
               <div>
                 <h3 class="product-title">Smart QR Menu</h3>
-                <p class="product-subtitle">Restaurant Management System</p>
+                <p class="product-subtitle">Restaurant Management</p>
               </div>
             </div>
-            <p class="product-desc">Complete digital menu & restaurant management with QR ordering, real-time analytics, and seamless customer experience.</p>
+            <p class="product-desc">Complete digital menu & restaurant management with QR ordering and analytics.</p>
             <div class="product-footer">
-              <div>
-                <span class="product-price-label">Starting at</span>
-                <span class="product-price" style="color: #10b981;">&#8377;25,000</span>
-              </div>
-              <a href="#contact" class="product-link" style="color: #10b981;">
-                View Details
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </a>
+              <a href="#contact" class="product-link" style="color: #10b981;">Get Quote</a>
             </div>
           </div>
         </div>
@@ -1691,10 +1650,9 @@
                 <p class="product-subtitle">Multi-vendor Marketplace</p>
               </div>
             </div>
-            <p class="product-desc">Complete e-commerce solution with multi-vendor support, payment gateway integration, and advanced inventory management.</p>
+            <p class="product-desc">Complete e-commerce solution with multi-vendor support.</p>
             <div class="product-footer">
               <span class="product-status" style="background: rgba(6,182,212,0.1); color: #06b6d4; border: 1px solid rgba(6,182,212,0.2);">In Development</span>
-              <span style="font-size: 0.75rem; color: #64748b;">Notify Me</span>
             </div>
           </div>
         </div>
@@ -1717,11 +1675,114 @@
                 <p class="product-subtitle">Employee & Payroll System</p>
               </div>
             </div>
-            <p class="product-desc">Complete HR solution with attendance tracking, payroll automation, leave management, and employee self-service portal.</p>
+            <p class="product-desc">Complete HR solution with attendance tracking and payroll.</p>
             <div class="product-footer">
               <span class="product-status" style="background: rgba(139,92,246,0.1); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2);">Planning</span>
-              <span style="font-size: 0.75rem; color: #64748b;">Notify Me</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION (NEW) -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge" style="margin-bottom: 1.25rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Testimonials</span>
+        </div>
+        <h2 class="section-title">What Our <span class="gradient-text">Clients Say</span></h2>
+        <p class="section-desc">Hear from the businesses we've helped succeed.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="quote-icon">“</div>
+          <p class="testimonial-text">Codinec transformed our vague idea into a fully functional SaaS product. Their attention to detail and technical expertise is unmatched.</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="Client" class="client-avatar">
+            <div class="client-details">
+              <h4>Rajesh Kumar</h4>
+              <span>CEO, TechStart India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="quote-icon">“</div>
+          <p class="testimonial-text">The team delivered our mobile app ahead of schedule. The code quality is excellent, and the post-launch support has been fantastic.</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="Client" class="client-avatar">
+            <div class="client-details">
+              <h4>Priya Sharma</h4>
+              <span>Founder, GlowUp Beauty</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="quote-icon">“</div>
+          <p class="testimonial-text">We needed a complex ERP system, and Codinec delivered it seamlessly. They understand business logic, not just code.</p>
+          <div class="client-info">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Client" class="client-avatar">
+            <div class="client-details">
+              <h4>Amit Verma</h4>
+              <span>Director, LogiTrans</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION (NEW) -->
+  <section id="blog">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge" style="margin-bottom: 1.25rem;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          <span>Blog</span>
+        </div>
+        <h2 class="section-title">Latest <span class="gradient-text">Insights</span></h2>
+        <p class="section-desc">Stay updated with latest trends in web development.</p>
+      </div>
+
+      <div class="blog-grid">
+        <!-- Blog 1 -->
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop" alt="Blog 1" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-meta">Oct 24, 2023 • Development</div>
+            <h3 class="blog-title">Why Laravel is Still the Best Choice for Startups in 2024</h3>
+            <p class="blog-excerpt">Exploring the robust features, security, and scalability that make Laravel the go-to framework.</p>
+            <a href="#" class="read-more">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop" alt="Blog 2" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-meta">Oct 15, 2023 • Mobile</div>
+            <h3 class="blog-title">Flutter vs React Native: Which One to Choose?</h3>
+            <p class="blog-excerpt">A comprehensive comparison to help you decide the right tech stack for your next mobile app.</p>
+            <a href="#" class="read-more">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop" alt="Blog 3" class="blog-img">
+          <div class="blog-content">
+            <div class="blog-meta">Sep 28, 2023 • AI</div>
+            <h3 class="blog-title">Integrating AI Chatbots into Your Business Website</h3>
+            <p class="blog-excerpt">Learn how AI automation can improve customer support and boost sales conversions.</p>
+            <a href="#" class="read-more">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
       </div>
@@ -1740,7 +1801,6 @@
             <span class="about-badge float" style="animation-delay: 0s;">Laravel Experts</span>
             <span class="about-badge float" style="animation-delay: 0.3s;">React Developers</span>
             <span class="about-badge float" style="animation-delay: 0.6s;">AI Integration</span>
-            <span class="about-badge float" style="animation-delay: 0.9s;">Startup Friendly</span>
           </div>
         </div>
 
@@ -1796,7 +1856,7 @@
             <span>Contact Us</span>
           </div>
           <h2>Let&apos;s Build <span class="gradient-text">Something Amazing</span></h2>
-          <p>Ready to transform your idea into a powerful digital product? Get in touch with our team for a free consultation and project estimate.</p>
+          <p>Ready to transform your idea into a powerful digital product? Get in touch with our team for a free consultation.</p>
 
           <div class="contact-methods">
             <div class="contact-method">
@@ -1883,31 +1943,26 @@
               <a href="#" class="social-link" aria-label="GitHub">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
               </a>
-              <a href="#" class="social-link" aria-label="Instagram">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
             </div>
-          </div>
-
-          <div class="footer-links">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#services">PHP Development</a></li>
-              <li><a href="#services">Full-Stack Dev</a></li>
-              <li><a href="#services">Mobile Apps</a></li>
-              <li><a href="#services">AI & Chatbots</a></li>
-              <li><a href="#services">API Integration</a></li>
-            </ul>
           </div>
 
           <div class="footer-links">
             <h4>Company</h4>
             <ul>
               <li><a href="#about">About Us</a></li>
+              <li><a href="#projects">Projects</a></li>
               <li><a href="#products">Products</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Web Development</a></li>
+              <li><a href="#services">Mobile Apps</a></li>
+              <li><a href="#services">AI Solutions</a></li>
+              <li><a href="#services">Consulting</a></li>
             </ul>
           </div>
 
@@ -1920,16 +1975,6 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </button>
             </form>
-            <div class="trust-badges">
-              <div class="trust-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                <span>SSL Secured</span>
-              </div>
-              <div class="trust-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>GDPR Ready</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -1942,14 +1987,10 @@
           <div class="footer-legal">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
-            <a href="#">Sitemap</a>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="glow" style="width: 300px; height: 300px; background: rgba(16,185,129,0.04); bottom: -150px; left: 10%;"></div>
-    <div class="glow" style="width: 200px; height: 200px; background: rgba(6,182,212,0.03); bottom: -100px; right: 20%;"></div>
   </footer>
 
   <!-- Toast Notification -->
@@ -1988,37 +2029,37 @@
       mobileMenu.classList.remove('active');
     }
 
-    // ==================== 3D HERO ANIMATION (GSAP + CSS) ====================
+    // ==================== 3D HERO ANIMATION ====================
     function initHero3D() {
       const stage = document.getElementById('hero3dStage');
       const layers = document.querySelectorAll('.layer-card, .floating-shape');
       
-      // Mouse Move Parallax
-      document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-        const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
+      // Only enable full parallax on desktop to save performance on mobile
+      if (window.innerWidth > 1023) {
+        document.addEventListener('mousemove', (e) => {
+          const x = (e.clientX / window.innerWidth - 0.5) * 2;
+          const y = (e.clientY / window.innerHeight - 0.5) * 2;
 
-        // Rotate the whole stage slightly based on mouse
-        gsap.to(stage, {
-          rotationY: x * 15, // Rotate Y based on X mouse
-          rotationX: -y * 15, // Rotate X based on Y mouse
-          duration: 1,
-          ease: 'power2.out'
-        });
-
-        // Parallax effect for individual layers
-        layers.forEach((layer, index) => {
-          const depth = (index + 1) * 10;
-          gsap.to(layer, {
-            x: x * depth,
-            y: y * depth,
+          gsap.to(stage, {
+            rotationY: x * 15,
+            rotationX: -y * 15,
             duration: 1,
             ease: 'power2.out'
           });
-        });
-      });
 
-      // Floating Animation for Layers
+          layers.forEach((layer, index) => {
+            const depth = (index + 1) * 10;
+            gsap.to(layer, {
+              x: x * depth,
+              y: y * depth,
+              duration: 1,
+              ease: 'power2.out'
+            });
+          });
+        });
+      }
+
+      // Floating Animation (works on all screens)
       layers.forEach((layer, index) => {
         gsap.to(layer, {
           y: '+=15',
@@ -2031,7 +2072,7 @@
       });
     }
 
-    // ==================== SIMPLE HERO BACKGROUND CANVAS ====================
+    // ==================== HERO CANVAS ====================
     function initHeroCanvas() {
       const canvas = document.getElementById('hero-canvas');
       const ctx = canvas.getContext('2d');
@@ -2073,7 +2114,6 @@
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
           ctx.fill();
 
-          // Draw connections
           for (let j = i + 1; j < particles.length; j++) {
             const p2 = particles[j];
             const dx = p.x - p2.x;
@@ -2101,84 +2141,15 @@
       animate();
     }
 
-    // ==================== SERVICES PARTICLE CANVAS ====================
-    function initServicesCanvas() {
-      const canvas = document.getElementById('services-canvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-
-      function resize() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-        initParticles();
-      }
-
-      function initParticles() {
-        particles = [];
-        const count = Math.min(60, Math.floor(canvas.width / 25));
-        const colors = ['#10b981', '#06b6d4', '#8b5cf6', '#14b8a6'];
-
-        for (let i = 0; i < count; i++) {
-          particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            size: Math.random() * 2 + 1,
-            color: colors[Math.floor(Math.random() * colors.length)]
-          });
-        }
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((p, i) => {
-          p.x += p.vx;
-          p.y += p.vy;
-
-          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = p.color + '40';
-          ctx.fill();
-
-          // Connect nearby particles
-          particles.slice(i + 1).forEach(p2 => {
-            const dx = p.x - p2.x;
-            const dy = p.y - p2.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 100) {
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.strokeStyle = `rgba(16, 185, 129, ${0.08 * (1 - dist / 100)})`;
-              ctx.stroke();
-            }
-          });
-        });
-
-        requestAnimationFrame(animate);
-      }
-
-      resize();
-      animate();
-      window.addEventListener('resize', resize);
-    }
-
     // ==================== GSAP ANIMATIONS ====================
     function initAnimations() {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Initialize 3D Hero
+      // Initialize Hero
       initHero3D();
       initHeroCanvas();
-      initServicesCanvas();
 
-      // Hero Text Animation
+      // Hero Text
       gsap.from(".hero-title", {
         y: 50,
         opacity: 0,
@@ -2193,17 +2164,11 @@
         ease: "power3.out",
         delay: 0.4
       });
-      gsap.from(".hero-buttons", {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.6
-      });
 
-      // Stats counter animation
+      // Stats Counter
       function animateCounter(id, target, suffix = '+') {
         const el = document.getElementById(id);
+        if(!el) return;
         let current = 0;
         const step = Math.max(1, Math.floor(target / 40));
         const interval = setInterval(() => {
@@ -2227,7 +2192,7 @@
         once: true
       });
 
-      // Tree hub animation
+      // Tree Hub
       gsap.from('#treeHub', {
         scale: 0,
         opacity: 0,
@@ -2239,7 +2204,7 @@
         }
       });
 
-      // Tree nodes animation
+      // Tree Nodes
       const treeNodes = document.querySelectorAll('.tree-node');
       treeNodes.forEach((node, i) => {
         gsap.to(node, {
@@ -2256,7 +2221,23 @@
         });
       });
 
-      // Products animation
+      // Recent Projects
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 60,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#projects',
+            start: 'top 75%'
+          }
+        });
+      });
+
+      // Products
       const productCards = document.querySelectorAll('.product-card');
       productCards.forEach((card, i) => {
         gsap.from(card, {
@@ -2272,7 +2253,39 @@
         });
       });
 
-      // About section
+      // Testimonials
+      const testimonialCards = document.querySelectorAll('.testimonial-card');
+      testimonialCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 75%'
+          }
+        });
+      });
+
+      // Blog
+      const blogCards = document.querySelectorAll('.blog-card');
+      blogCards.forEach((card, i) => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.7,
+          delay: i * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#blog',
+            start: 'top 75%'
+          }
+        });
+      });
+
+      // About
       gsap.from('.about-image', {
         x: -80,
         opacity: 0,
@@ -2283,7 +2296,6 @@
           start: 'top 70%'
         }
       });
-
       gsap.from('.about-content', {
         x: 80,
         opacity: 0,
@@ -2295,7 +2307,7 @@
         }
       });
 
-      // Contact section
+      // Contact
       gsap.from('.contact-info', {
         x: -60,
         opacity: 0,
@@ -2306,7 +2318,6 @@
           start: 'top 70%'
         }
       });
-
       gsap.from('.contact-form', {
         x: 60,
         opacity: 0,

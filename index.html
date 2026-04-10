@@ -72,7 +72,6 @@
     .mm-soc a{width:2.25rem;height:2.25rem;border-radius:0.5rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:#64748b;transition:all .3s}
     .mm-soc a:hover{background:#10b981;color:#fff;border-color:#10b981}
 
-    /* ===== HERO ===== */
     #hero{position:relative;padding:72px 0 0;overflow:hidden}
     @media(min-width:1024px){#hero{min-height:100vh;display:flex;align-items:center;padding-top:0}}
     #heroC{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;display:none}
@@ -87,7 +86,6 @@
     @keyframes mo2{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,-30px) scale(1.15)}}
     @keyframes mo3{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,-40px) scale(1.1)}}
 
-    /* MOBILE STATIC TERMINAL */
     .hero-mob-terminal{display:block;position:relative;z-index:5;margin:1.5rem auto 0;max-width:340px;width:100%;background:rgba(8,12,20,0.95);border:1px solid rgba(255,255,255,0.08);border-radius:0.875rem;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.5)}
     @media(min-width:480px){.hero-mob-terminal{max-width:380px}}
     @media(min-width:1024px){.hero-mob-terminal{display:none}}
@@ -103,9 +101,7 @@
     .hmt-status{display:flex;align-items:center;gap:0.375rem;margin-top:0.75rem;padding-top:0.625rem;border-top:1px solid rgba(255,255,255,0.04)}
     .hmt-status-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:spulse 2s ease-in-out infinite}
     @keyframes spulse{0%,100%{opacity:1}50%{opacity:0.4}}
-    .hmt-status-text{font-size:0.5rem;color:#10b981;font-weight:500}
 
-    /* DESKTOP 3D TERMINAL */
     .hv{display:none;position:relative;height:500px;align-items:center;justify-content:center;perspective:1000px}
     @media(min-width:1024px){.hv{display:flex}}
     .h3s{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(8deg) rotateY(-8deg);transition:transform .1s ease-out}
@@ -116,7 +112,7 @@
     .dterm-dot{width:9px;height:9px;border-radius:50%}
     .dterm-dot-r{background:#ef4444}.dterm-dot-y{background:#f59e0b}.dterm-dot-g{background:#10b981}
     .dterm-tab{margin-left:0.625rem;font-size:0.625rem;color:#64748b;font-weight:500}
-    .dterm-body{padding:1rem 1.125rem;font-family:var(--mono);font-size:0.6rem;line-height:1.75;color:#94a3b8}
+    .dterm-body{padding:1rem 1.125rem;font-family:var(--mono);font-size:0.6rem;line-height:1.75;color:#94a3b8;min-height:180px}
     .dterm-body .hmt-prompt{color:#10b981}.dterm-body .hmt-cmd{color:#e2e8f0}.dterm-body .hmt-flag{color:#f59e0b}.dterm-body .hmt-ok{color:#10b981}.dterm-body .hmt-url{color:#60a5fa}.dterm-body .hmt-comment{color:#475569}
     .dterm-body .hmt-cursor{display:inline-block;width:6px;height:13px;background:#10b981;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite}
     .dterm-status{display:flex;align-items:center;gap:0.375rem;margin-top:0.75rem;padding-top:0.625rem;border-top:1px solid rgba(255,255,255,0.04)}
@@ -128,7 +124,7 @@
     .dc-lang{font-size:0.5rem;color:#06b6d4;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
     .dc-dots{display:flex;gap:0.25rem}
     .dc-dots span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.1)}
-    .dc-body{padding:0.75rem 0.875rem;font-family:var(--mono);font-size:0.525rem;line-height:1.7;color:#e2e8f0}
+    .dc-body{padding:0.75rem 0.875rem;font-family:var(--mono);font-size:0.525rem;line-height:1.7;color:#e2e8f0;min-height:150px}
     .dc-body .ck{color:#c084fc}.dc-body .cf{color:#60a5fa}.dc-body .cs{color:#facc15}.dc-body .cc{color:#475569}
 
     .hc{position:relative;z-index:10;display:grid;grid-template-columns:1fr;gap:1.5rem;padding-bottom:2.5rem}
@@ -161,7 +157,6 @@
     .st{font-size:clamp(1.5rem,5vw,2.75rem);font-weight:800;color:#fff;margin-bottom:1rem}
     .sd{font-size:clamp(0.875rem,2vw,1.0625rem);color:#94a3b8}
 
-    /* HEREDITARY TREE */
     #services{position:relative;padding:4rem 0;overflow:hidden}
     @media(min-width:768px){#services{padding:5rem 0}}
     @media(min-width:1024px){#services{padding:7rem 0}}
@@ -223,7 +218,6 @@
     .leaf-desc{font-size:0.5625rem;color:#64748b;line-height:1.4}
     @media(min-width:768px){.leaf-desc{font-size:0.625rem}}
 
-    /* PROJECTS */
     #projects{position:relative;padding:4rem 0;background:rgba(13,21,37,0.3)}
     @media(min-width:768px){#projects{padding:6rem 0}}
     .pg{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
@@ -242,7 +236,6 @@
     .pd{font-size:0.8rem;color:#94a3b8;margin-bottom:0.875rem;line-height:1.6}
     .plk{display:inline-flex;align-items:center;gap:0.375rem;color:#10b981;font-weight:600;font-size:0.8rem}
 
-    /* PRODUCTS */
     #products{position:relative;padding:4rem 0;overflow:hidden}
     @media(min-width:768px){#products{padding:6rem 0}}
     .prg{display:grid;grid-template-columns:1fr;gap:1.25rem}
@@ -270,7 +263,6 @@
     .prc:hover .prclk{gap:0.5rem}
     .prst{font-size:0.6875rem;font-weight:600;padding:0.25rem 0.75rem;border-radius:999px}
 
-    /* TESTIMONIALS */
     #testimonials{position:relative;padding:4rem 0}
     @media(min-width:768px){#testimonials{padding:6rem 0}}
     .tg2{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
@@ -284,7 +276,6 @@
     .cdn h4{font-size:0.8125rem;color:#fff;margin-bottom:0}
     .cdn span{font-size:0.7rem;color:#64748b}
 
-    /* BLOG */
     #blog{position:relative;padding:4rem 0;background:rgba(13,21,37,0.3)}
     @media(min-width:768px){#blog{padding:6rem 0}}
     .blg{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
@@ -300,7 +291,6 @@
     .ble{font-size:0.8rem;color:#94a3b8;margin-bottom:0.875rem;line-height:1.6}
     .blrm{font-size:0.8rem;color:#06b6d4;font-weight:600;display:inline-flex;align-items:center;gap:0.25rem}
 
-    /* ABOUT */
     #about{position:relative;padding:4rem 0;overflow:hidden}
     @media(min-width:768px){#about{padding:6rem 0}}
     .ag{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
@@ -318,7 +308,6 @@
     .afc{width:1.25rem;height:1.25rem;border-radius:50%;background:rgba(16,185,129,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .aft{font-size:0.75rem;font-weight:500;color:#fff}
 
-    /* CONTACT */
     #contact{position:relative;padding:4rem 0;overflow:hidden}
     @media(min-width:768px){#contact{padding:6rem 0}}
     .cg{display:grid;grid-template-columns:1fr;gap:2.5rem}
@@ -342,7 +331,6 @@
     .fr{display:grid;grid-template-columns:1fr;gap:1rem}
     @media(min-width:480px){.fr{grid-template-columns:1fr 1fr}}
 
-    /* FOOTER */
     footer{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg),#030508)}
     .fline{height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,0.2),transparent)}
     .fco{padding:3rem 0 1.5rem}
@@ -441,7 +429,6 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <section id="hero">
     <canvas id="heroC"></canvas>
     <div class="hero-mob-bg">
@@ -468,7 +455,6 @@
           </div>
         </div>
 
-        <!-- MOBILE: Static Terminal -->
         <div class="hero-mob-terminal">
           <div class="hmt-bar">
             <div class="hmt-dot hmt-dot-r"></div>
@@ -492,7 +478,6 @@
           </div>
         </div>
 
-        <!-- DESKTOP: 3D Terminal + Code Card (NO floating icons) -->
         <div class="hv">
           <div class="h3s" id="h3s">
             <div class="dterm dterm-main">
@@ -502,35 +487,18 @@
                 <div class="dterm-dot dterm-dot-g"></div>
                 <span class="dterm-tab">codinec@server ~ bash</span>
               </div>
-              <div class="dterm-body">
-                <div><span class="hmt-comment"># Deploy new project</span></div>
-                <div><span class="hmt-prompt">$ </span><span class="hmt-cmd">codinec deploy --project=startup</span></div>
-                <div><span class="hmt-flag">⠋</span> Building application...</div>
-                <div><span class="hmt-ok">✓</span> Compiled successfully in 2.4s</div>
-                <div><span class="hmt-ok">✓</span> Optimized bundle: 142KB</div>
-                <div><span class="hmt-ok">✓</span> Tests passed: 48/48</div>
-                <div><span class="hmt-ok">✓</span> Deployed to production</div>
-                <div><span class="hmt-url">→ https://yourapp.com</span><span class="hmt-cursor"></span></div>
-                <div class="dterm-status">
-                  <div class="dterm-status-dot"></div>
-                  <span class="dterm-status-text">Server running — 99.9% uptime</span>
-                </div>
+              <div class="dterm-body" id="dtermBody"></div>
+              <div class="dterm-status">
+                <div class="dterm-status-dot"></div>
+                <span class="dterm-status-text" id="dtermStatus">Server running — 99.9% uptime</span>
               </div>
             </div>
             <div class="dterm dterm-code">
               <div class="dc-header">
-                <span class="dc-lang">config.ts</span>
+                <span class="dc-lang" id="dcLang">config.ts</span>
                 <div class="dc-dots"><span></span><span></span><span></span></div>
               </div>
-              <div class="dc-body">
-                <div><span class="cc">// Project config</span></div>
-                <div><span class="ck">export const</span> <span class="cf">config</span> = {</div>
-                <div>&nbsp;&nbsp;framework: <span class="cs">"laravel"</span>,</div>
-                <div>&nbsp;&nbsp;database: <span class="cs">"postgresql"</span>,</div>
-                <div>&nbsp;&nbsp;cache: <span class="cs">"redis"</span>,</div>
-                <div>&nbsp;&nbsp;deploy: <span class="cs">"docker"</span>,</div>
-                <div>};</div>
-              </div>
+              <div class="dc-body" id="dcBody"></div>
             </div>
           </div>
         </div>
@@ -539,7 +507,6 @@
     <div class="sci"><span class="sct">Scroll</span><div class="scm"><div class="scd"></div></div></div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services">
     <div class="glow" style="width:350px;height:350px;background:rgba(16,185,129,0.04);top:5%;right:-12%"></div>
     <div class="container">
@@ -589,7 +556,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
       <div class="sh"><div class="badge" style="margin-bottom:1rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg><span>Recent Projects</span></div><h2 class="st">Real projects. <span class="gt">Real results.</span></h2><p class="sd">See how we've helped businesses grow.</p></div>
@@ -601,19 +567,17 @@
     </div>
   </section>
 
-  <!-- PRODUCTS -->
   <section id="products">
     <div class="container">
       <div class="sh"><div class="badge" style="margin-bottom:1rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg><span>Our Products</span></div><h2 class="st">Innovative <span class="gt">Product Solutions</span></h2><p class="sd">Ready-to-deploy products built with latest technology.</p></div>
       <div class="prg">
-        <div class="prc"><div class="prim"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=250&fit=crop" alt="QR Menu" loading="lazy"><div class="prio"></div><span class="prib">Featured</span></div><div class="prco"><div class="prch"><div class="prci" style="background:rgba(16,185,129,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div><div><h3 class="prct">Smart QR Menu</h3><p class="prcs">Restaurant Management</p></div></div><p class="prcd">Complete digital menu with QR ordering and analytics.</p><div class="prcf"><a href="#contact" class="prclk" style="color:#10b981">Get Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div></div>
+        <div class="prc"><div class="prim"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=250&fit=crop" alt="QR Menu" loading="lazy"><div class="prio"></div><span class="prib">Featured</span></div><div class="prco"><div class="prch"><div class="prci" style="background:rgba(16,185,129,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg></div><div><h3 class="prct">Smart QR Menu</h3><p class="prcs">Restaurant Management</p></div></div><p class="prcd">Complete digital menu with QR ordering and analytics.</p><div class="prcf"><a href="#contact" class="prclk" style="color:#10b981">Get Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div></div>
         <div class="prc"><div class="prip"><div class="prip-i"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div><span class="prip-t">Coming Soon</span></div><div class="prco"><div class="prch"><div class="prci" style="background:rgba(6,182,212,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div><div><h3 class="prct">E-Commerce Suite</h3><p class="prcs">Multi-vendor</p></div></div><p class="prcd">Complete e-commerce with multi-vendor support.</p><div class="prcf"><span class="prst" style="background:rgba(6,182,212,0.1);color:#06b6d4;border:1px solid rgba(6,182,212,0.2)">In Development</span></div></div></div>
         <div class="prc"><div class="prip"><div class="prip-i"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg></div><span class="prip-t">Coming Soon</span></div><div class="prco"><div class="prch"><div class="prci" style="background:rgba(139,92,246,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg></div><div><h3 class="prct">HR Management</h3><p class="prcs">Employee & Payroll</p></div></div><p class="prcd">Complete HR with attendance and payroll.</p><div class="prcf"><span class="prst" style="background:rgba(139,92,246,0.1);color:#8b5cf6;border:1px solid rgba(139,92,246,0.2)">Planning</span></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="container">
       <div class="sh"><div class="badge" style="margin-bottom:1rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>Testimonials</span></div><h2 class="st">What Our <span class="gt">Clients Say</span></h2><p class="sd">Hear from businesses we've helped succeed.</p></div>
@@ -625,19 +589,17 @@
     </div>
   </section>
 
-  <!-- BLOG -->
   <section id="blog">
     <div class="container">
       <div class="sh"><div class="badge" style="margin-bottom:1rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span>Blog</span></div><h2 class="st">Latest <span class="gt">Insights</span></h2><p class="sd">Stay updated with latest trends in web development.</p></div>
       <div class="blg">
-        <div class="blc"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop" alt="Blog" class="bli" loading="lazy"><div class="blco"><div class="blm">Oct 24, 2023 • Development</div><h3 class="blt">Why Laravel is Still the Best Choice for Startups in 2024</h3><p class="ble">Exploring robust features, security, and scalability of Laravel.</p><a href="#" class="blrm">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div>
-        <div class="blc"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop" alt="Blog" class="bli" loading="lazy"><div class="blco"><div class="blm">Oct 15, 2023 • Mobile</div><h3 class="blt">Flutter vs React Native: Which One to Choose?</h3><p class="ble">A comprehensive comparison for your next mobile app.</p><a href="#" class="blrm">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div>
-        <div class="blc"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop" alt="Blog" class="bli" loading="lazy"><div class="blco"><div class="blm">Sep 28, 2023 • AI</div><h3 class="blt">Integrating AI Chatbots into Your Business Website</h3><p class="ble">How AI automation can improve customer support and boost sales.</p><a href="#" class="blrm">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div>
+        <div class="blc"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop" alt="Blog" class="bli" loading="lazy"><div class="blco"><div class="blm">Oct 24, 2023 - Development</div><h3 class="blt">Why Laravel is Still the Best Choice for Startups in 2024</h3><p class="ble">Exploring robust features, security, and scalability of Laravel.</p><a href="#" class="blrm">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div>
+        <div class="blc"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop" alt="Blog" class="bli" loading="lazy"><div class="blco"><div class="blm">Oct 15, 2023 - Mobile</div><h3 class="blt">Flutter vs React Native: Which One to Choose?</h3><p class="ble">A comprehensive comparison for your next mobile app.</p><a href="#" class="blrm">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div>
+        <div class="blc"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=300&fit=crop" alt="Blog" class="bli" loading="lazy"><div class="blco"><div class="blm">Sep 28, 2023 - AI</div><h3 class="blt">Integrating AI Chatbots into Your Business Website</h3><p class="ble">How AI automation can improve customer support and boost sales.</p><a href="#" class="blrm">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <div class="ag">
@@ -658,17 +620,16 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="cg">
         <div class="ci">
-          <div class="badge" style="margin-bottom:0.875rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Contact Us</span></div>
+          <div class="badge" style="margin-bottom:0.875rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Contact Us</span></div>
           <h2>Let's Build <span class="gt">Something Amazing</span></h2>
           <p>Ready to transform your idea into a powerful digital product? Get in touch for a free consultation.</p>
           <div class="cms">
             <div class="cm"><div class="cmi" style="background:rgba(16,185,129,0.1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div><div class="cml">Email Us</div><div class="cmv">hello@codinec.com</div></div></div>
-            <div class="cm"><div class="cmi" style="background:rgba(6,182,212,0.1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><div><div class="cml">Call Us</div><div class="cmv">+91 98765 43210</div></div></div>
+            <div class="cm"><div class="cmi" style="background:rgba(6,182,212,0.1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><div><div class="cml">Call Us</div><div class="cmv">+91 98765 43210</div></div></div>
             <div class="cm"><div class="cmi" style="background:rgba(139,92,246,0.1)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><div><div class="cml">Location</div><div class="cmv">India (Remote Friendly)</div></div></div>
           </div>
         </div>
@@ -684,7 +645,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="fline"></div>
     <div class="container">
@@ -703,6 +663,7 @@
   <div class="toast" id="toast"><div class="td"></div><span class="tt" id="tt">Message sent!</span></div>
 
   <script>
+    /* ===== LOADER ===== */
     window.addEventListener('load', function() {
       setTimeout(function() {
         document.getElementById('pl').classList.add('hid');
@@ -710,11 +671,13 @@
       }, 400);
     });
 
+    /* ===== NAVBAR ===== */
     var navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
+    /* ===== MOBILE MENU ===== */
     var hamBtn = document.getElementById('hamBtn');
     var mm = document.getElementById('mm');
     var bd = document.getElementById('bd');
@@ -728,7 +691,7 @@
     var mmLinks = mm.querySelectorAll('.mm-link, .btn-p');
     for (var i = 0; i < mmLinks.length; i++) { mmLinks[i].addEventListener('click', closeMenu); }
 
-    /* CANVAS — DESKTOP ONLY */
+    /* ===== CANVAS — DESKTOP ONLY ===== */
     function initCanvas() {
       var canvas = document.getElementById('heroC');
       if (!canvas || window.innerWidth < 1024) return;
@@ -764,7 +727,7 @@
       resize(); create(); draw();
     }
 
-    /* 3D TERMINAL — DESKTOP ONLY — sirf .dterm, koi floating icon nahi */
+    /* ===== 3D TERMINAL — DESKTOP ONLY ===== */
     function init3D() {
       var stage = document.getElementById('h3s');
       if (!stage || window.innerWidth < 1024) return;
@@ -785,7 +748,34 @@
       });
     }
 
-    /* TREE SVG */
+    /* ===== STATIC DESKTOP TERMINAL CONTENT (replaces broken typewriter) ===== */
+    function fillDesktopTerminals() {
+      var termBody = document.getElementById('dtermBody');
+      if (!termBody) return;
+      termBody.innerHTML =
+        '<div><span class="hmt-comment"># Deploy new project</span></div>' +
+        '<div><span class="hmt-prompt">$ </span><span class="hmt-cmd">codinec deploy --project=startup</span></div>' +
+        '<div><span class="hmt-flag">⠋</span> Building application...</div>' +
+        '<div><span class="hmt-ok">✓</span> Compiled successfully in 2.4s</div>' +
+        '<div><span class="hmt-ok">✓</span> Optimized bundle: 142KB</div>' +
+        '<div><span class="hmt-ok">✓</span> Tests passed: 48/48</div>' +
+        '<div><span class="hmt-ok">✓</span> Deployed to production</div>' +
+        '<div><span class="hmt-url">→ https://yourapp.com</span><span class="hmt-cursor"></span></div>';
+
+      var codeBody = document.getElementById('dcBody');
+      if (!codeBody) return;
+      codeBody.innerHTML =
+        '<div><span class="cc">// Project config</span></div>' +
+        '<div><span class="ck">export const</span> <span class="cf">config</span> = {' +
+        '<div>  stack: <span class="cs">"laravel"</span>,</div>' +
+        '<div>  db: <span class="cs">"postgresql"</span>,</div>' +
+        '<div>  cache: <span class="cs">"redis"</span>,</div>' +
+        '<div>  deploy: <span class="cs">"docker"</span>,</div>' +
+        '<div>  ci: <span class="cs">"github-actions"</span></div>' +
+        '<div>};</div></div>';
+    }
+
+    /* ===== TREE SVG ===== */
     function drawTreeLines() {
       var svg = document.getElementById('treeSvg');
       var hub = document.getElementById('treeHub');
@@ -810,7 +800,10 @@
         var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         var midY = (hy + dy) / 2;
         path.setAttribute('d', 'M ' + hx + ' ' + hy + ' C ' + hx + ' ' + midY + ', ' + dx + ' ' + midY + ', ' + dx + ' ' + dy);
-        path.setAttribute('stroke', color); path.setAttribute('stroke-width', '2'); path.setAttribute('stroke-opacity', '0.2'); path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', color);
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('stroke-opacity', '0.2');
+        path.setAttribute('fill', 'none');
         svg.appendChild(path);
       });
       if (window.innerWidth >= 1024) {
@@ -828,17 +821,24 @@
             var lpath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             var lmidY = (dy + ly) / 2;
             lpath.setAttribute('d', 'M ' + dx + ' ' + dy + ' C ' + dx + ' ' + lmidY + ', ' + lx + ' ' + lmidY + ', ' + lx + ' ' + ly);
-            lpath.setAttribute('stroke', color); lpath.setAttribute('stroke-width', '1'); lpath.setAttribute('stroke-opacity', '0.12'); lpath.setAttribute('fill', 'none');
+            lpath.setAttribute('stroke', color);
+            lpath.setAttribute('stroke-width', '1');
+            lpath.setAttribute('stroke-opacity', '0.12');
+            lpath.setAttribute('fill', 'none');
             svg.appendChild(lpath);
             var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.setAttribute('cx', lx); circle.setAttribute('cy', ly); circle.setAttribute('r', '2.5');
-            circle.setAttribute('fill', color); circle.setAttribute('fill-opacity', '0.3');
+            circle.setAttribute('cx', lx);
+            circle.setAttribute('cy', ly);
+            circle.setAttribute('r', '2.5');
+            circle.setAttribute('fill', color);
+            circle.setAttribute('fill-opacity', '0.3');
             svg.appendChild(circle);
           });
         });
       }
     }
 
+    /* ===== COUNTER ===== */
     function animCount(id, target) {
       var el = document.getElementById(id);
       if (!el) return;
@@ -846,19 +846,43 @@
       var iv = setInterval(function() { cur += step; if (cur >= target) { cur = target; clearInterval(iv); } el.textContent = cur + '+'; }, 45);
     }
 
+    /* ===== INIT ALL ===== */
     function initAll() {
-      if (typeof gsap === 'undefined') { initCanvas(); init3D(); return; }
+      /* Fill desktop terminals with static content */
+      fillDesktopTerminals();
+
+      if (typeof gsap === 'undefined') {
+        /* GSAP failed to load — still show content */
+        initCanvas();
+        init3D();
+        animCount('s1', 150);
+        animCount('s2', 80);
+        animCount('s3', 5);
+        return;
+      }
       gsap.registerPlugin(ScrollTrigger);
       initCanvas();
       init3D();
 
+      /* Hero animations */
       gsap.from('.ht-t', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
       gsap.from('.ht-d', { y: 25, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.4 });
       gsap.from('.ht-b', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5 });
       gsap.from('.hero-mob-terminal', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.6 });
 
-      ScrollTrigger.create({ trigger: '#hero', start: 'top 80%', once: true, onEnter: function() { animCount('s1', 150); animCount('s2', 80); animCount('s3', 5); } });
+      /* Counter on scroll */
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: 'top 80%',
+        once: true,
+        onEnter: function() {
+          animCount('s1', 150);
+          animCount('s2', 80);
+          animCount('s3', 5);
+        }
+      });
 
+      /* Services tree */
       gsap.from('.tree-trunk', { scaleY: 0, transformOrigin: 'top center', duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#services', start: 'top 75%' } });
       gsap.from('#treeHub', { scale: 0, opacity: 0, duration: 0.8, ease: 'elastic.out(1,0.5)', scrollTrigger: { trigger: '#services', start: 'top 70%' } });
       document.querySelectorAll('.branch-l1-header').forEach(function(header, i) {
@@ -870,22 +894,60 @@
       ScrollTrigger.create({ trigger: '.tree-branches', start: 'top 65%', once: true, onEnter: function() { setTimeout(drawTreeLines, 900); } });
       window.addEventListener('resize', function() { clearTimeout(window._trt); window._trt = setTimeout(drawTreeLines, 300); });
 
-      [{ s: '.pc', t: '#projects' }, { s: '.prc', t: '#products' }, { s: '.tc2', t: '#testimonials' }, { s: '.blc', t: '#blog' }].forEach(function(o) {
-        document.querySelectorAll(o.s).forEach(function(card, i) {
-          gsap.from(card, { y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: 'power3.out', scrollTrigger: { trigger: o.t, start: 'top 80%' } });
+      /* Card animations for each section */
+      var sections = [
+        { selector: '.pc', trigger: '#projects' },
+        { selector: '.prc', trigger: '#products' },
+        { selector: '.tc2', trigger: '#testimonials' },
+        { selector: '.blc', trigger: '#blog' }
+      ];
+      sections.forEach(function(o) {
+        document.querySelectorAll(o.selector).forEach(function(card, i) {
+          gsap.from(card, { y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: 'power3.out', scrollTrigger: { trigger: o.trigger, start: 'top 80%' } });
         });
       });
+
+      /* About section */
       gsap.from('.ai', { x: -50, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 75%' } });
       gsap.from('.aco', { x: 50, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 75%' } });
+
+      /* Contact section */
       gsap.from('.ci', { x: -40, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#contact', start: 'top 75%' } });
       gsap.from('.cform', { x: 40, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#contact', start: 'top 75%' } });
     }
 
-    function showToast(msg) { var t = document.getElementById('toast'); document.getElementById('tt').textContent = msg; t.classList.add('show'); setTimeout(function() { t.classList.remove('show'); }, 4000); }
-    document.getElementById('cf').addEventListener('submit', function(e) { e.preventDefault(); showToast('Message sent! We will get back to you soon.'); this.reset(); });
-    document.getElementById('nf').addEventListener('submit', function(e) { e.preventDefault(); showToast('Subscribed successfully! Check your inbox.'); this.reset(); });
+    /* ===== TOAST ===== */
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      document.getElementById('tt').textContent = msg;
+      t.classList.add('show');
+      setTimeout(function() { t.classList.remove('show'); }, 4000);
+    }
+
+    /* ===== FORM SUBMISSIONS ===== */
+    document.getElementById('cf').addEventListener('submit', function(e) {
+      e.preventDefault();
+      showToast('Message sent! We will get back to you soon.');
+      this.reset();
+    });
+    document.getElementById('nf').addEventListener('submit', function(e) {
+      e.preventDefault();
+      showToast('Subscribed successfully! Check your inbox.');
+      this.reset();
+    });
+
+    /* ===== SMOOTH SCROLL ===== */
     document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-      a.addEventListener('click', function(e) { e.preventDefault(); var target = document.querySelector(this.getAttribute('href')); if (target) { window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 70, behavior: 'smooth' }); } });
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.pageYOffset - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
 </body>

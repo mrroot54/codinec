@@ -31,7 +31,6 @@
     .btn-g:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2)}
     .glow{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none}
 
-    /* NAVBAR */
     .navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.875rem 0;transition:all .4s}
     .navbar.scrolled{background:rgba(5,8,16,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);padding:0.625rem 0}
     .navbar-inner{display:flex;align-items:center;justify-content:space-between}
@@ -73,17 +72,11 @@
     .mm-soc a{width:2.25rem;height:2.25rem;border-radius:0.5rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:#64748b;transition:all .3s}
     .mm-soc a:hover{background:#10b981;color:#fff;border-color:#10b981}
 
-    /* ============================================
-       HERO — PERMANENT FIX
-       Mobile: CSS orbs + Static Terminal (ZERO JS)
-       Desktop: Canvas + 3D Terminal (FULL 3D)
-       ============================================ */
+    /* ===== HERO ===== */
     #hero{position:relative;padding:72px 0 0;overflow:hidden}
     @media(min-width:1024px){#hero{min-height:100vh;display:flex;align-items:center;padding-top:0}}
-
     #heroC{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;display:none}
     @media(min-width:1024px){#heroC{display:block}}
-
     .hero-mob-bg{display:flex;align-items:center;justify-content:center;position:absolute;inset:0;z-index:0;overflow:hidden}
     @media(min-width:1024px){.hero-mob-bg{display:none}}
     .hero-mob-bg .mob-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.5}
@@ -94,82 +87,49 @@
     @keyframes mo2{0%{transform:translate(0,0) scale(1)}100%{transform:translate(40px,-30px) scale(1.15)}}
     @keyframes mo3{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,-40px) scale(1.1)}}
 
-    /* ===== MOBILE STATIC TERMINAL ===== */
+    /* MOBILE STATIC TERMINAL */
     .hero-mob-terminal{display:block;position:relative;z-index:5;margin:1.5rem auto 0;max-width:340px;width:100%;background:rgba(8,12,20,0.95);border:1px solid rgba(255,255,255,0.08);border-radius:0.875rem;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.5)}
     @media(min-width:480px){.hero-mob-terminal{max-width:380px}}
     @media(min-width:1024px){.hero-mob-terminal{display:none}}
-
     .hmt-bar{display:flex;align-items:center;gap:0.375rem;padding:0.625rem 0.875rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
     .hmt-dot{width:8px;height:8px;border-radius:50%}
-    .hmt-dot-r{background:#ef4444}
-    .hmt-dot-y{background:#f59e0b}
-    .hmt-dot-g{background:#10b981}
+    .hmt-dot-r{background:#ef4444}.hmt-dot-y{background:#f59e0b}.hmt-dot-g{background:#10b981}
     .hmt-title{margin-left:0.5rem;font-size:0.6rem;color:#475569;font-weight:500}
-
     .hmt-body{padding:0.875rem;font-family:var(--mono);font-size:0.55rem;line-height:1.7;color:#94a3b8}
     @media(min-width:480px){.hmt-body{font-size:0.625rem;padding:1rem}}
-    .hmt-prompt{color:#10b981}
-    .hmt-cmd{color:#e2e8f0}
-    .hmt-flag{color:#f59e0b}
-    .hmt-ok{color:#10b981}
-    .hmt-url{color:#60a5fa}
-    .hmt-comment{color:#475569}
-
-    /* CSS-only blinking cursor */
+    .hmt-prompt{color:#10b981}.hmt-cmd{color:#e2e8f0}.hmt-flag{color:#f59e0b}.hmt-ok{color:#10b981}.hmt-url{color:#60a5fa}.hmt-comment{color:#475569}
     .hmt-cursor{display:inline-block;width:6px;height:12px;background:#10b981;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite}
     @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-
     .hmt-status{display:flex;align-items:center;gap:0.375rem;margin-top:0.75rem;padding-top:0.625rem;border-top:1px solid rgba(255,255,255,0.04)}
     .hmt-status-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:spulse 2s ease-in-out infinite}
     @keyframes spulse{0%,100%{opacity:1}50%{opacity:0.4}}
     .hmt-status-text{font-size:0.5rem;color:#10b981;font-weight:500}
 
-    /* ===== DESKTOP 3D TERMINAL ===== */
+    /* DESKTOP 3D TERMINAL */
     .hv{display:none;position:relative;height:500px;align-items:center;justify-content:center;perspective:1000px}
     @media(min-width:1024px){.hv{display:flex}}
     .h3s{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(8deg) rotateY(-8deg);transition:transform .1s ease-out}
-
     .dterm{position:absolute;border-radius:1rem;background:rgba(8,12,20,0.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 40px rgba(16,185,129,0.05);transform-style:preserve-3d;overflow:hidden}
-
-    /* Main terminal */
-    .dterm-main{top:8%;left:5%;width:340px;transform:translateZ(80px) rotateY(-6deg)}
-    @media(min-width:1280px){.dterm-main{width:380px;left:8%}}
+    .dterm-main{top:8%;left:8%;width:340px;transform:translateZ(80px) rotateY(-6deg)}
+    @media(min-width:1280px){.dterm-main{width:380px;left:10%}}
     .dterm-bar{display:flex;align-items:center;gap:0.4375rem;padding:0.6875rem 1rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
     .dterm-dot{width:9px;height:9px;border-radius:50%}
-    .dterm-dot-r{background:#ef4444}
-    .dterm-dot-y{background:#f59e0b}
-    .dterm-dot-g{background:#10b981}
+    .dterm-dot-r{background:#ef4444}.dterm-dot-y{background:#f59e0b}.dterm-dot-g{background:#10b981}
     .dterm-tab{margin-left:0.625rem;font-size:0.625rem;color:#64748b;font-weight:500}
     .dterm-body{padding:1rem 1.125rem;font-family:var(--mono);font-size:0.6rem;line-height:1.75;color:#94a3b8}
-    .dterm-body .hmt-prompt{color:#10b981}
-    .dterm-body .hmt-cmd{color:#e2e8f0}
-    .dterm-body .hmt-flag{color:#f59e0b}
-    .dterm-body .hmt-ok{color:#10b981}
-    .dterm-body .hmt-url{color:#60a5fa}
-    .dterm-body .hmt-comment{color:#475569}
+    .dterm-body .hmt-prompt{color:#10b981}.dterm-body .hmt-cmd{color:#e2e8f0}.dterm-body .hmt-flag{color:#f59e0b}.dterm-body .hmt-ok{color:#10b981}.dterm-body .hmt-url{color:#60a5fa}.dterm-body .hmt-comment{color:#475569}
     .dterm-body .hmt-cursor{display:inline-block;width:6px;height:13px;background:#10b981;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite}
     .dterm-status{display:flex;align-items:center;gap:0.375rem;margin-top:0.75rem;padding-top:0.625rem;border-top:1px solid rgba(255,255,255,0.04)}
     .dterm-status-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:spulse 2s ease-in-out infinite}
     .dterm-status-text{font-size:0.5rem;color:#10b981;font-weight:500}
-
-    /* Small code snippet card */
-    .dterm-code{bottom:12%;right:5%;width:260px;transform:translateZ(110px) rotateY(8deg) rotateX(-4deg)}
-    @media(min-width:1280px){.dterm-code{width:290px;right:8%}}
+    .dterm-code{bottom:12%;right:8%;width:260px;transform:translateZ(110px) rotateY(8deg) rotateX(-4deg)}
+    @media(min-width:1280px){.dterm-code{width:290px;right:10%}}
     .dc-header{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0.875rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
     .dc-lang{font-size:0.5rem;color:#06b6d4;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
     .dc-dots{display:flex;gap:0.25rem}
     .dc-dots span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.1)}
     .dc-body{padding:0.75rem 0.875rem;font-family:var(--mono);font-size:0.525rem;line-height:1.7;color:#e2e8f0}
-    .dc-body .ck{color:#c084fc}
-    .dc-body .cf{color:#60a5fa}
-    .dc-body .cs{color:#facc15}
-    .dc-body .cc{color:#475569}
-
-    /* Floating accents */
-    .dacc{position:absolute;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;pointer-events:none}
-    .dacc-1{top:5%;right:22%;width:70px;height:70px;border:1px solid rgba(16,185,129,0.2);background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(6,182,212,0.03));transform:translateZ(130px) rotate(45deg)}
-    .dacc-2{bottom:18%;left:15%;width:50px;height:50px;border-radius:50%;border:1px solid rgba(139,92,246,0.2);background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(244,63,94,0.03));transform:translateZ(60px)}
-    .dacc-3{top:45%;right:3%;width:40px;height:40px;border-radius:0.5rem;border:1px solid rgba(6,182,212,0.2);background:rgba(6,182,212,0.06);transform:translateZ(90px) rotate(20deg)}
+    .dc-body .ck{color:#c084fc}.dc-body .cf{color:#60a5fa}.dc-body .cs{color:#facc15}.dc-body .cc{color:#475569}
 
     .hc{position:relative;z-index:10;display:grid;grid-template-columns:1fr;gap:1.5rem;padding-bottom:2.5rem}
     @media(min-width:1024px){.hc{grid-template-columns:1fr 1fr;gap:3rem;padding:2rem 0;align-items:center}}
@@ -196,13 +156,12 @@
     @keyframes sb{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(5px);opacity:0.5}}
     @keyframes pg{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(16,185,129,0.4)}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(16,185,129,0)}}
 
-    /* SECTION COMMONS */
     .sh{text-align:center;max-width:48rem;margin:0 auto 3rem}
     @media(min-width:768px){.sh{margin-bottom:4rem}}
     .st{font-size:clamp(1.5rem,5vw,2.75rem);font-weight:800;color:#fff;margin-bottom:1rem}
     .sd{font-size:clamp(0.875rem,2vw,1.0625rem);color:#94a3b8}
 
-    /* HEREDITARY TREE SERVICES */
+    /* HEREDITARY TREE */
     #services{position:relative;padding:4rem 0;overflow:hidden}
     @media(min-width:768px){#services{padding:5rem 0}}
     @media(min-width:1024px){#services{padding:7rem 0}}
@@ -299,8 +258,7 @@
     .prib{position:absolute;bottom:0.625rem;left:0.625rem;font-size:0.5625rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;background:rgba(16,185,129,0.9);color:#fff;padding:0.2rem 0.625rem;border-radius:999px}
     .prip{height:170px;background:linear-gradient(135deg,rgba(13,21,37,0.8),rgba(10,15,26,0.95));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.625rem;border-bottom:1px solid rgba(255,255,255,0.04)}
     @media(min-width:640px){.prip{height:200px}}
-    .prip-i{opacity:0.3}
-    .prip-t{font-size:0.75rem;color:#64748b;font-weight:500}
+    .prip-i{opacity:0.3}.prip-t{font-size:0.75rem;color:#64748b;font-weight:500}
     .prco{padding:1.125rem}
     .prch{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:0.75rem}
     .prci{width:2.5rem;height:2.5rem;border-radius:0.625rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -432,7 +390,6 @@
 
   <div class="pl" id="pl"><div class="lr"></div></div>
 
-  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <div class="navbar-inner">
@@ -456,7 +413,6 @@
 
   <div class="bd" id="bd"></div>
 
-  <!-- MOBILE MENU -->
   <div class="mm" id="mm">
     <div class="mm-hd">
       <div class="mm-logo">
@@ -485,26 +441,16 @@
     </div>
   </div>
 
-  <!-- ============================================
-       HERO SECTION
-       Mobile  → CSS orbs + Static Terminal
-       Desktop → Canvas + 3D Terminal + Code Card
-       ============================================ -->
+  <!-- HERO -->
   <section id="hero">
-
-    <!-- DESKONLY: Canvas particle background -->
     <canvas id="heroC"></canvas>
-
-    <!-- MOBILE ONLY: CSS animated orbs -->
     <div class="hero-mob-bg">
       <div class="mob-orb mob-orb-1"></div>
       <div class="mob-orb mob-orb-2"></div>
       <div class="mob-orb mob-orb-3"></div>
     </div>
-
     <div class="glow" style="width:350px;height:350px;background:rgba(16,185,129,0.06);top:-60px;right:-12%"></div>
     <div class="glow" style="width:250px;height:250px;background:rgba(6,182,212,0.04);bottom:10%;left:-12%"></div>
-
     <div class="container">
       <div class="hc">
         <div class="ht">
@@ -522,10 +468,7 @@
           </div>
         </div>
 
-        <!-- =============================
-             MOBILE: Static Terminal
-             ZERO JS — Pure HTML/CSS
-             ============================= -->
+        <!-- MOBILE: Static Terminal -->
         <div class="hero-mob-terminal">
           <div class="hmt-bar">
             <div class="hmt-dot hmt-dot-r"></div>
@@ -549,13 +492,9 @@
           </div>
         </div>
 
-        <!-- =============================
-             DESKTOP ONLY: 3D Terminal + Code
-             ============================= -->
+        <!-- DESKTOP: 3D Terminal + Code Card (NO floating icons) -->
         <div class="hv">
           <div class="h3s" id="h3s">
-
-            <!-- Main Terminal -->
             <div class="dterm dterm-main">
               <div class="dterm-bar">
                 <div class="dterm-dot dterm-dot-r"></div>
@@ -578,8 +517,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- Code Snippet Card -->
             <div class="dterm dterm-code">
               <div class="dc-header">
                 <span class="dc-lang">config.ts</span>
@@ -595,12 +532,6 @@
                 <div>};</div>
               </div>
             </div>
-
-            <!-- Floating Accents -->
-            <div class="dacc dacc-1"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
-            <div class="dacc dacc-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,0.4)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-            <div class="dacc dacc-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
-
           </div>
         </div>
       </div>
@@ -608,7 +539,7 @@
     <div class="sci"><span class="sct">Scroll</span><div class="scm"><div class="scd"></div></div></div>
   </section>
 
-  <!-- SERVICES — HEREDITARY TREE -->
+  <!-- SERVICES -->
   <section id="services">
     <div class="glow" style="width:350px;height:350px;background:rgba(16,185,129,0.04);top:5%;right:-12%"></div>
     <div class="container">
@@ -797,7 +728,7 @@
     var mmLinks = mm.querySelectorAll('.mm-link, .btn-p');
     for (var i = 0; i < mmLinks.length; i++) { mmLinks[i].addEventListener('click', closeMenu); }
 
-    /* ===== CANVAS — DESKTOP ONLY ===== */
+    /* CANVAS — DESKTOP ONLY */
     function initCanvas() {
       var canvas = document.getElementById('heroC');
       if (!canvas || window.innerWidth < 1024) return;
@@ -833,11 +764,11 @@
       resize(); create(); draw();
     }
 
-    /* ===== 3D TERMINAL — DESKTOP ONLY ===== */
+    /* 3D TERMINAL — DESKTOP ONLY — sirf .dterm, koi floating icon nahi */
     function init3D() {
       var stage = document.getElementById('h3s');
       if (!stage || window.innerWidth < 1024) return;
-      var layers = stage.querySelectorAll('.dterm, .dacc');
+      var layers = stage.querySelectorAll('.dterm');
       for (var i = 0; i < layers.length; i++) {
         (function(el, idx) {
           gsap.to(el, { y: '+=12', duration: 2 + idx * 0.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: idx * 0.15 });
@@ -854,7 +785,7 @@
       });
     }
 
-    /* ===== TREE SVG ===== */
+    /* TREE SVG */
     function drawTreeLines() {
       var svg = document.getElementById('treeSvg');
       var hub = document.getElementById('treeHub');

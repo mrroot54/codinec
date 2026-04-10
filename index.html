@@ -113,8 +113,6 @@
     .dterm-dot-r{background:#ef4444}.dterm-dot-y{background:#f59e0b}.dterm-dot-g{background:#10b981}
     .dterm-tab{margin-left:0.625rem;font-size:0.625rem;color:#64748b;font-weight:500}
     .dterm-body{padding:1rem 1.125rem;font-family:var(--mono);font-size:0.6rem;line-height:1.75;color:#94a3b8;min-height:180px}
-    .dterm-body .hmt-prompt{color:#10b981}.dterm-body .hmt-cmd{color:#e2e8f0}.dterm-body .hmt-flag{color:#f59e0b}.dterm-body .hmt-ok{color:#10b981}.dterm-body .hmt-url{color:#60a5fa}.dterm-body .hmt-comment{color:#475569}
-    .dterm-body .hmt-cursor{display:inline-block;width:6px;height:13px;background:#10b981;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite}
     .dterm-status{display:flex;align-items:center;gap:0.375rem;margin-top:0.75rem;padding-top:0.625rem;border-top:1px solid rgba(255,255,255,0.04)}
     .dterm-status-dot{width:6px;height:6px;border-radius:50%;background:#10b981;animation:spulse 2s ease-in-out infinite}
     .dterm-status-text{font-size:0.5rem;color:#10b981;font-weight:500}
@@ -125,7 +123,6 @@
     .dc-dots{display:flex;gap:0.25rem}
     .dc-dots span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.1)}
     .dc-body{padding:0.75rem 0.875rem;font-family:var(--mono);font-size:0.525rem;line-height:1.7;color:#e2e8f0;min-height:150px}
-    .dc-body .ck{color:#c084fc}.dc-body .cf{color:#60a5fa}.dc-body .cs{color:#facc15}.dc-body .cc{color:#475569}
 
     .hc{position:relative;z-index:10;display:grid;grid-template-columns:1fr;gap:1.5rem;padding-bottom:2.5rem}
     @media(min-width:1024px){.hc{grid-template-columns:1fr 1fr;gap:3rem;padding:2rem 0;align-items:center}}
@@ -417,7 +414,7 @@
       <div class="mm-div"></div>
       <a href="#about" class="mm-link"><svg class="mm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>About Us</a>
       <a href="#blog" class="mm-link"><svg class="mm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>Blog</a>
-      <a href="#contact" class="mm-link"><svg class="mm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Contact</a>
+      <a href="#contact" class="mm-link"><svg class="mm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Contact</a>
     </div>
     <div class="mm-ft">
       <a href="#contact" class="btn-p mm-cta">Get Free Quote</a>
@@ -455,6 +452,7 @@
           </div>
         </div>
 
+        <!-- Mobile Terminal (static) -->
         <div class="hero-mob-terminal">
           <div class="hmt-bar">
             <div class="hmt-dot hmt-dot-r"></div>
@@ -473,11 +471,12 @@
             <div><span class="hmt-url">→ https://yourapp.com</span><span class="hmt-cursor"></span></div>
             <div class="hmt-status">
               <div class="hmt-status-dot"></div>
-              <span class="hmt-status-text">Server running — 99.9% uptime</span>
+              <span class="dterm-status-text">Server running — 99.9% uptime</span>
             </div>
           </div>
         </div>
 
+        <!-- Desktop 3D Terminals -->
         <div class="hv">
           <div class="h3s" id="h3s">
             <div class="dterm dterm-main">
@@ -490,7 +489,7 @@
               <div class="dterm-body" id="dtermBody"></div>
               <div class="dterm-status">
                 <div class="dterm-status-dot"></div>
-                <span class="dterm-status-text" id="dtermStatus">Server running — 99.9% uptime</span>
+                <span class="dterm-status-text" id="dtermStatus"></span>
               </div>
             </div>
             <div class="dterm dterm-code">
@@ -671,7 +670,7 @@
       }, 400);
     });
 
-    /* ===== NAVBAR ===== */
+    /* ===== NAVBAR SCROLL ===== */
     var navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
@@ -691,7 +690,7 @@
     var mmLinks = mm.querySelectorAll('.mm-link, .btn-p');
     for (var i = 0; i < mmLinks.length; i++) { mmLinks[i].addEventListener('click', closeMenu); }
 
-    /* ===== CANVAS — DESKTOP ONLY ===== */
+    /* ===== CANVAS PARTICLES (DESKTOP) ===== */
     function initCanvas() {
       var canvas = document.getElementById('heroC');
       if (!canvas || window.innerWidth < 1024) return;
@@ -727,7 +726,7 @@
       resize(); create(); draw();
     }
 
-    /* ===== 3D TERMINAL — DESKTOP ONLY ===== */
+    /* ===== 3D PARALLAX (DESKTOP) ===== */
     function init3D() {
       var stage = document.getElementById('h3s');
       if (!stage || window.innerWidth < 1024) return;
@@ -748,34 +747,100 @@
       });
     }
 
-    /* ===== STATIC DESKTOP TERMINAL CONTENT (replaces broken typewriter) ===== */
-    function fillDesktopTerminals() {
-      var termBody = document.getElementById('dtermBody');
-      if (!termBody) return;
-      termBody.innerHTML =
-        '<div><span class="hmt-comment"># Deploy new project</span></div>' +
-        '<div><span class="hmt-prompt">$ </span><span class="hmt-cmd">codinec deploy --project=startup</span></div>' +
-        '<div><span class="hmt-flag">⠋</span> Building application...</div>' +
-        '<div><span class="hmt-ok">✓</span> Compiled successfully in 2.4s</div>' +
-        '<div><span class="hmt-ok">✓</span> Optimized bundle: 142KB</div>' +
-        '<div><span class="hmt-ok">✓</span> Tests passed: 48/48</div>' +
-        '<div><span class="hmt-ok">✓</span> Deployed to production</div>' +
-        '<div><span class="hmt-url">→ https://yourapp.com</span><span class="hmt-cursor"></span></div>';
+    /* ===================================================================
+       TYPEWRITER ENGINE — line by line type karta hai dono terminals mein
+       =================================================================== */
 
-      var codeBody = document.getElementById('dcBody');
-      if (!codeBody) return;
-      codeBody.innerHTML =
-        '<div><span class="cc">// Project config</span></div>' +
-        '<div><span class="ck">export const</span> <span class="cf">config</span> = {' +
-        '<div>  stack: <span class="cs">"laravel"</span>,</div>' +
-        '<div>  db: <span class="cs">"postgresql"</span>,</div>' +
-        '<div>  cache: <span class="cs">"redis"</span>,</div>' +
-        '<div>  deploy: <span class="cs">"docker"</span>,</div>' +
-        '<div>  ci: <span class="cs">"github-actions"</span></div>' +
-        '<div>};</div></div>';
+    /* --- Terminal lines (upper card) --- */
+    var termLines = [
+      { html: '<span style="color:#475569"># Deploy new project</span>', delay: 0 },
+      { html: '<span style="color:#10b981">$ </span><span style="color:#e2e8f0">codinec deploy --project=startup</span>', type: true, speed: 28 },
+      { html: '<span style="color:#f59e0b">⠋</span> Building application...', delay: 300 },
+      { html: '<span style="color:#f59e0b">⠙</span> Building application...', delay: 120 },
+      { html: '<span style="color:#f59e0b">⠹</span> Building application...', delay: 120 },
+      { html: '<span style="color:#f59e0b">⠸</span> Building application...', delay: 120 },
+      { html: '<span style="color:#f59e0b">⠼</span> Building application...', delay: 120 },
+      { html: '<span style="color:#f59e0b">⠴</span> Building application...', delay: 120 },
+      { html: '<span style="color:#10b981">✓</span> Compiled successfully in 2.4s', delay: 200 },
+      { html: '<span style="color:#10b981">✓</span> Optimized bundle: 142KB', delay: 180 },
+      { html: '<span style="color:#10b981">✓</span> Tests passed: 48/48', delay: 180 },
+      { html: '<span style="color:#10b981">✓</span> Deployed to production', delay: 200 },
+      { html: '<span style="color:#60a5fa">→ https://yourapp.com</span>', delay: 150 }
+    ];
+
+    /* --- Code editor lines (lower card) --- */
+    var codeLines = [
+      { html: '<span style="color:#475569">// Project configuration</span>', delay: 0 },
+      { html: '<span style="color:#c084fc">export const</span> <span style="color:#60a5fa">config</span> <span style="color:#e2e8f0">=</span> <span style="color:#e2e8f0">{</span>', type: true, speed: 22 },
+      { html: '  <span style="color:#60a5fa">name</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"codinec-starter"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 30 },
+      { html: '  <span style="color:#60a5fa">stack</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"laravel"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 28 },
+      { html: '  <span style="color:#60a5fa">database</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"postgresql"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 30 },
+      { html: '  <span style="color:#60a5fa">cache</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"redis"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 22 },
+      { html: '  <span style="color:#60a5fa">deploy</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"docker"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 25 },
+      { html: '  <span style="color:#60a5fa">ci</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"github-actions"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 30 },
+      { html: '  <span style="color:#60a5fa">testing</span><span style="color:#e2e8f0">:</span> <span style="color:#facc15">"pest-php"</span><span style="color:#e2e8f0">,</span>', type: true, speed: 26 },
+      { html: '<span style="color:#e2e8f0">};</span>', type: true, speed: 18 }
+    ];
+
+    /* Helper: ek line ko character-by-character type karo */
+    function typeLine(container, lineObj) {
+      return new Promise(function(resolve) {
+        var div = document.createElement('div');
+        div.style.cssText = 'font-family:var(--mono);font-size:inherit;line-height:1.75;color:#94a3b8;';
+        container.appendChild(div);
+
+        if (!lineObj.type) {
+          /* Instant line (no typing) */
+          div.innerHTML = lineObj.html;
+          setTimeout(resolve, lineObj.delay || 80);
+          return;
+        }
+
+        /* Strip HTML to get plain text length for typing speed */
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = lineObj.html;
+        var plainText = tempDiv.textContent || '';
+        var totalChars = plainText.length;
+        var speed = lineObj.speed || 25;
+        var charIndex = 0;
+
+        /* Typing ke dauran cursor dikhao */
+        var cursorHTML = '<span class="hmt-cursor" style="display:inline-block;width:6px;height:12px;background:#10b981;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite"></span>';
+
+        function typeNextChar() {
+          if (charIndex <= totalChars) {
+            /* Build HTML up to charIndex — simple approach: show progressively more plain text + preserve final HTML */
+            var visibleText = plainText.substring(0, charIndex);
+            /* We'll type the plain text first, then replace with colored HTML at end */
+            div.textContent = visibleText;
+            div.insertAdjacentHTML('beforeend', cursorHTML);
+            charIndex++;
+            setTimeout(typeNextChar, speed);
+          } else {
+            /* Typing complete — replace with full colored HTML */
+            div.innerHTML = lineObj.html;
+            setTimeout(resolve, 60);
+          }
+        }
+        typeNextChar();
+      });
     }
 
-    /* ===== TREE SVG ===== */
+    /* Helper: poora sequence chalao (lines array + container + loop) */
+    async function runTypewriterSequence(container, lines, pauseBeforeRestart, statusEl, statusText) {
+      while (true) {
+        container.innerHTML = '';
+        for (var i = 0; i < lines.length; i++) {
+          await typeLine(container, lines[i]);
+        }
+        /* Status bar text set karo */
+        if (statusEl) statusEl.textContent = statusText;
+        /* Pause, phir restart */
+        await new Promise(function(r) { setTimeout(r, pauseBeforeRestart); });
+      }
+    }
+
+    /* ===== TREE SVG LINES ===== */
     function drawTreeLines() {
       var svg = document.getElementById('treeSvg');
       var hub = document.getElementById('treeHub');
@@ -838,7 +903,7 @@
       }
     }
 
-    /* ===== COUNTER ===== */
+    /* ===== COUNTER ANIMATION ===== */
     function animCount(id, target) {
       var el = document.getElementById(id);
       if (!el) return;
@@ -848,39 +913,39 @@
 
     /* ===== INIT ALL ===== */
     function initAll() {
-      /* Fill desktop terminals with static content */
-      fillDesktopTerminals();
 
-      if (typeof gsap === 'undefined') {
-        /* GSAP failed to load — still show content */
-        initCanvas();
-        init3D();
-        animCount('s1', 150);
-        animCount('s2', 80);
-        animCount('s3', 5);
-        return;
+      /* --- Start Typewriters (desktop only) --- */
+      var termBody = document.getElementById('dtermBody');
+      var codeBody = document.getElementById('dcBody');
+      var termStatus = document.getElementById('dtermStatus');
+
+      if (window.innerWidth >= 1024 && termBody && codeBody) {
+        /* Pehle terminal type karo, 0.8s baad code editor shuru karo */
+        runTypewriterSequence(termBody, termLines, 3500, termStatus, 'Server running — 99.9% uptime');
+        setTimeout(function() {
+          runTypewriterSequence(codeBody, codeLines, 4000, null, '');
+        }, 800);
       }
-      gsap.registerPlugin(ScrollTrigger);
+
+      /* --- Canvas & 3D --- */
       initCanvas();
       init3D();
 
-      /* Hero animations */
+      /* --- GSAP fallback --- */
+      if (typeof gsap === 'undefined') {
+        animCount('s1', 150); animCount('s2', 80); animCount('s3', 5);
+        return;
+      }
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* Hero entrance */
       gsap.from('.ht-t', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 });
       gsap.from('.ht-d', { y: 25, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.4 });
       gsap.from('.ht-b', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.5 });
       gsap.from('.hero-mob-terminal', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.6 });
 
       /* Counter on scroll */
-      ScrollTrigger.create({
-        trigger: '#hero',
-        start: 'top 80%',
-        once: true,
-        onEnter: function() {
-          animCount('s1', 150);
-          animCount('s2', 80);
-          animCount('s3', 5);
-        }
-      });
+      ScrollTrigger.create({ trigger: '#hero', start: 'top 80%', once: true, onEnter: function() { animCount('s1', 150); animCount('s2', 80); animCount('s3', 5); } });
 
       /* Services tree */
       gsap.from('.tree-trunk', { scaleY: 0, transformOrigin: 'top center', duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#services', start: 'top 75%' } });
@@ -894,59 +959,33 @@
       ScrollTrigger.create({ trigger: '.tree-branches', start: 'top 65%', once: true, onEnter: function() { setTimeout(drawTreeLines, 900); } });
       window.addEventListener('resize', function() { clearTimeout(window._trt); window._trt = setTimeout(drawTreeLines, 300); });
 
-      /* Card animations for each section */
-      var sections = [
-        { selector: '.pc', trigger: '#projects' },
-        { selector: '.prc', trigger: '#products' },
-        { selector: '.tc2', trigger: '#testimonials' },
-        { selector: '.blc', trigger: '#blog' }
-      ];
-      sections.forEach(function(o) {
-        document.querySelectorAll(o.selector).forEach(function(card, i) {
-          gsap.from(card, { y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: 'power3.out', scrollTrigger: { trigger: o.trigger, start: 'top 80%' } });
+      /* Cards */
+      [{ s: '.pc', t: '#projects' }, { s: '.prc', t: '#products' }, { s: '.tc2', t: '#testimonials' }, { s: '.blc', t: '#blog' }].forEach(function(o) {
+        document.querySelectorAll(o.s).forEach(function(card, i) {
+          gsap.from(card, { y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, ease: 'power3.out', scrollTrigger: { trigger: o.t, start: 'top 80%' } });
         });
       });
 
-      /* About section */
+      /* About */
       gsap.from('.ai', { x: -50, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 75%' } });
       gsap.from('.aco', { x: 50, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 75%' } });
 
-      /* Contact section */
+      /* Contact */
       gsap.from('.ci', { x: -40, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#contact', start: 'top 75%' } });
       gsap.from('.cform', { x: 40, opacity: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '#contact', start: 'top 75%' } });
     }
 
     /* ===== TOAST ===== */
-    function showToast(msg) {
-      var t = document.getElementById('toast');
-      document.getElementById('tt').textContent = msg;
-      t.classList.add('show');
-      setTimeout(function() { t.classList.remove('show'); }, 4000);
-    }
-
-    /* ===== FORM SUBMISSIONS ===== */
-    document.getElementById('cf').addEventListener('submit', function(e) {
-      e.preventDefault();
-      showToast('Message sent! We will get back to you soon.');
-      this.reset();
-    });
-    document.getElementById('nf').addEventListener('submit', function(e) {
-      e.preventDefault();
-      showToast('Subscribed successfully! Check your inbox.');
-      this.reset();
-    });
+    function showToast(msg) { var t = document.getElementById('toast'); document.getElementById('tt').textContent = msg; t.classList.add('show'); setTimeout(function() { t.classList.remove('show'); }, 4000); }
+    document.getElementById('cf').addEventListener('submit', function(e) { e.preventDefault(); showToast('Message sent! We will get back to you soon.'); this.reset(); });
+    document.getElementById('nf').addEventListener('submit', function(e) { e.preventDefault(); showToast('Subscribed successfully! Check your inbox.'); this.reset(); });
 
     /* ===== SMOOTH SCROLL ===== */
     document.querySelectorAll('a[href^="#"]').forEach(function(a) {
       a.addEventListener('click', function(e) {
         e.preventDefault();
         var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.getBoundingClientRect().top + window.pageYOffset - 70,
-            behavior: 'smooth'
-          });
-        }
+        if (target) { window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 70, behavior: 'smooth' }); }
       });
     });
   </script>

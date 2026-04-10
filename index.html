@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
@@ -44,7 +43,6 @@
     .nav-link{font-size:0.8125rem;font-weight:500;color:rgba(255,255,255,0.7);transition:color .3s;white-space:nowrap}
     .nav-link:hover{color:#10b981}
 
-    /* HAMBURGER */
     .ham{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0.75rem;background:none;border:none;cursor:pointer;z-index:101;-webkit-tap-highlight-color:transparent}
     @media(min-width:1024px){.ham{display:none}}
     .ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .35s cubic-bezier(.4,0,.2,1);transform-origin:center}
@@ -52,11 +50,9 @@
     .ham.on span:nth-child(2){opacity:0;transform:scaleX(0)}
     .ham.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    /* BACKDROP */
     .bd{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:99;opacity:0;pointer-events:none;transition:opacity .4s}
     .bd.on{opacity:1;pointer-events:all}
 
-    /* MOBILE MENU PANEL */
     .mm{position:fixed;top:0;right:0;bottom:0;width:82%;max-width:340px;background:linear-gradient(180deg,rgba(8,12,22,0.99),rgba(5,8,16,0.99));backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);z-index:100;transform:translateX(100%);transition:transform .45s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(255,255,255,0.05)}
     .mm.on{transform:translateX(0)}
     @media(min-width:1024px){.mm{display:none}}
@@ -83,7 +79,7 @@
     .mm-soc a{width:2.25rem;height:2.25rem;border-radius:0.5rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:#64748b;transition:all .3s}
     .mm-soc a:hover{background:#10b981;color:#fff;border-color:#10b981}
 
-    /* HERO */
+    /* HERO — MOBILE FIX */
     #hero{position:relative;padding:72px 0 0;overflow:hidden}
     @media(min-width:1024px){#hero{min-height:100vh;display:flex;align-items:center;padding-top:0}}
     #heroC{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
@@ -105,41 +101,60 @@
     @media(min-width:480px){.sv{font-size:1.875rem}}
     .sl{font-size:0.6rem;color:#64748b;font-weight:500;margin-top:0.125rem;text-transform:uppercase;letter-spacing:1px}
 
-    /* HERO 3D — ALL SCREENS */
-    .hv{position:relative;height:280px;display:flex;align-items:center;justify-content:center;perspective:800px}
-    @media(min-width:480px){.hv{height:340px}}
-    @media(min-width:768px){.hv{height:400px}}
+    /* HERO VISUAL — NO 3D ON MOBILE */
+    .hv{position:relative;height:220px;display:flex;align-items:center;justify-content:center}
+    @media(min-width:480px){.hv{height:260px}}
+    @media(min-width:768px){.hv{height:320px}}
     @media(min-width:1024px){.hv{height:500px;perspective:1000px}}
-    .h3s{position:relative;width:100%;height:100%;transform-style:preserve-3d}
-    @media(min-width:1024px){.h3s{transform:rotateX(10deg) rotateY(-10deg);transition:transform .1s ease-out}}
-    .lc{position:absolute;border-radius:1rem;background:rgba(13,21,37,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 50px rgba(0,0,0,0.5);padding:1rem;transform-style:preserve-3d}
-    .lc-code{top:8%;left:50%;width:200px;transform:translate(-50%,-50%) translateZ(40px)}
-    @media(min-width:480px){.lc-code{width:240px;transform:translate(-50%,-50%) translateZ(50px)}}
-    @media(min-width:768px){.lc-code{top:15%;left:8%;width:280px;transform:translateZ(60px) rotateY(-8deg)}}
+
+    .h3s{position:relative;width:100%;height:100%}
+
+    /* MOBILE: flat simple layout, no 3D */
+    .lc{position:absolute;border-radius:1rem;background:rgba(13,21,37,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 50px rgba(0,0,0,0.5);padding:1rem}
+
+    .lc-code{top:5%;left:50%;width:190px;transform:translate(-50%,0)}
+    @media(min-width:480px){.lc-code{width:230px;top:8%}}
+    @media(min-width:768px){.lc-code{top:10%;left:5%;width:270px;transform:none}}
     @media(min-width:1024px){.lc-code{top:20%;left:10%;width:300px;transform:translateZ(80px) rotateY(-10deg)}}
+
     .ch{display:flex;gap:0.375rem;margin-bottom:0.75rem}
     .cd{width:8px;height:8px;border-radius:50%}
     @media(min-width:480px){.cd{width:10px;height:10px}}
     .cd-r{background:#ef4444}.cd-y{background:#f59e0b}.cd-g{background:#10b981}
-    .cb{font-family:var(--mono);font-size:0.55rem;color:#e2e8f0;line-height:1.5}
-    @media(min-width:480px){.cb{font-size:0.65rem}}
+    .cb{font-family:var(--mono);font-size:0.5rem;color:#e2e8f0;line-height:1.5}
+    @media(min-width:480px){.cb{font-size:0.6rem}}
+    @media(min-width:768px){.cb{font-size:0.65rem}}
     .ck{color:#c084fc}.cf{color:#60a5fa}.cs{color:#facc15}
-    .lc-tech{bottom:5%;right:50%;width:170px;transform:translate(50%,0) translateZ(30px) rotateX(3deg)}
-    @media(min-width:480px){.lc-tech{width:200px;transform:translate(50%,0) translateZ(40px) rotateX(3deg)}}
-    @media(min-width:768px){.lc-tech{bottom:10%;right:8%;width:220px;transform:translateZ(70px) rotateY(8deg) rotateX(-3deg)}}
+
+    .lc-tech{bottom:5%;right:50%;width:160px;transform:translate(50%,0)}
+    @media(min-width:480px){.lc-tech{width:190px;bottom:8%}}
+    @media(min-width:768px){.lc-tech{bottom:10%;right:5%;width:210px;transform:none}}
     @media(min-width:1024px){.lc-tech{bottom:15%;right:5%;width:240px;transform:translateZ(100px) rotateY(10deg) rotateX(-5deg)}}
+
     .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:0.375rem}
     @media(min-width:480px){.tg{gap:0.5rem}}
     .tib{aspect-ratio:1;background:rgba(255,255,255,0.05);border-radius:0.375rem;display:flex;align-items:center;justify-content:center}
-    .tib svg{width:16px;height:16px;stroke-width:1.5}
-    @media(min-width:480px){.tib svg{width:20px;height:20px}}
+    .tib svg{width:14px;height:14px;stroke-width:1.5}
+    @media(min-width:480px){.tib svg{width:18px;height:18px}}
+    @media(min-width:768px){.tib svg{width:20px;height:20px}}
+
     .fs{position:absolute;border-radius:0.75rem;border:1px solid rgba(16,185,129,0.3);background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(6,182,212,0.05));backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center}
-    .fs1{top:2%;right:15%;width:55px;height:55px;transform:translateZ(80px) rotate(45deg)}
-    @media(min-width:480px){.fs1{width:70px;height:70px;right:18%}}
-    @media(min-width:1024px){.fs1{top:0;right:20%;width:80px;height:80px;transform:translateZ(120px) rotate(45deg)}}
-    .fs2{bottom:15%;left:12%;width:40px;height:40px;border-radius:50%;border-color:rgba(139,92,246,0.3);background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(244,63,94,0.05));transform:translateZ(50px)}
-    @media(min-width:480px){.fs2{width:50px;height:50px;left:15%}}
-    @media(min-width:1024px){.fs2{bottom:10%;left:10%;width:60px;height:60px;transform:translateZ(60px)}}
+
+    /* MOBILE: hide floating shapes */
+    .fs1{top:2%;right:18%;width:45px;height:45px;border-radius:0.75rem;opacity:0.7}
+    @media(min-width:768px){.fs1{width:65px;height:65px;right:15%;top:5%;opacity:1}}
+    @media(min-width:1024px){.fs1{top:0;right:20%;width:80px;height:80px;transform:translateZ(120px) rotate(45deg);opacity:1}}
+
+    .fs2{bottom:20%;left:10%;width:35px;height:35px;border-radius:50%;border-color:rgba(139,92,246,0.3);background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(244,63,94,0.05));opacity:0.6}
+    @media(min-width:768px){.fs2{width:48px;height:48px;left:12%;opacity:1}}
+    @media(min-width:1024px){.fs2{bottom:10%;left:10%;width:60px;height:60px;transform:translateZ(60px);opacity:1}}
+
+    /* 3D transforms ONLY on desktop */
+    @media(min-width:1024px){
+      .h3s{transform-style:preserve-3d;transform:rotateX(10deg) rotateY(-10deg);transition:transform .1s ease-out}
+      .lc{transform-style:preserve-3d}
+    }
+
     .sci{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;z-index:20}
     @media(min-width:768px){.sci{display:none}}
     .sct{font-size:0.5625rem;color:#64748b;font-weight:500;text-transform:uppercase;letter-spacing:3px}
@@ -154,37 +169,100 @@
     .st{font-size:clamp(1.5rem,5vw,2.75rem);font-weight:800;color:#fff;margin-bottom:1rem}
     .sd{font-size:clamp(0.875rem,2vw,1.0625rem);color:#94a3b8}
 
-    /* SERVICES TREE */
+    /* ===== HEREDITARY TREE SERVICES ===== */
     #services{position:relative;padding:4rem 0;overflow:hidden}
     @media(min-width:768px){#services{padding:5rem 0}}
     @media(min-width:1024px){#services{padding:7rem 0}}
-    .tc{position:relative;max-width:1100px;margin:0 auto}
-    .thub{position:relative;width:110px;height:110px;margin:0 auto 0;border-radius:50%;background:linear-gradient(145deg,rgba(16,185,129,0.15),rgba(6,182,212,0.1));border:2px solid rgba(16,185,129,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;box-shadow:0 0 50px rgba(16,185,129,0.15)}
-    @media(min-width:480px){.thub{width:130px;height:130px}}
-    @media(min-width:768px){.thub{width:160px;height:160px}}
-    .thub-i{width:32px;height:32px;border-radius:0.625rem;background:linear-gradient(135deg,#10b981,#06b6d4);display:flex;align-items:center;justify-content:center;margin-bottom:0.375rem;box-shadow:0 6px 20px rgba(16,185,129,0.4)}
-    .thub-t{font-weight:700;font-size:0.7rem;color:#fff;text-align:center}
-    .thub-s{font-size:0.5rem;color:#64748b;text-align:center}
 
-    .tsvg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+    .tree-wrap{position:relative;max-width:1100px;margin:0 auto}
 
-    .tn{display:grid;grid-template-columns:repeat(2,1fr);gap:0.875rem;max-width:420px;margin:0 auto;position:relative;z-index:2}
-    @media(min-width:480px){.tn{max-width:480px;gap:1rem}}
-    @media(min-width:640px){.tn{max-width:540px;gap:1.125rem}}
-    @media(min-width:768px){.tn{grid-template-columns:repeat(3,1fr);max-width:780px;gap:1.25rem}}
-    @media(min-width:1024px){.tn{grid-template-columns:repeat(5,1fr);max-width:100%;gap:1.25rem}}
+    /* Root / Trunk top */
+    .tree-root{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;margin-bottom:0;z-index:10}
 
-    .tnode{position:relative;padding:1rem 0.75rem;background:linear-gradient(145deg,rgba(13,21,37,0.95),rgba(10,15,26,0.98));border:1px solid rgba(255,255,255,0.06);border-radius:0.875rem;text-align:center;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1);opacity:0;transform:translateY(25px)}
-    @media(min-width:768px){.tnode{padding:1.25rem 1rem;border-radius:1rem}}
-    .tnode:hover{transform:translateY(-4px) scale(1.02);border-color:var(--nc,rgba(16,185,129,0.3));box-shadow:0 12px 35px rgba(0,0,0,0.3),0 0 25px var(--ng,rgba(16,185,129,0.08))}
-    .tnode.anim{opacity:1;transform:translateY(0)}
-    .ni{width:2.5rem;height:2.5rem;border-radius:0.625rem;display:flex;align-items:center;justify-content:center;margin:0 auto 0.625rem;transition:all .3s}
-    @media(min-width:768px){.ni{width:2.75rem;height:2.75rem;margin-bottom:0.75rem}}
-    .tnode:hover .ni{transform:scale(1.1) rotate(5deg)}
-    .nt{font-weight:600;font-size:0.75rem;color:#fff;margin-bottom:0.25rem;line-height:1.3}
-    @media(min-width:768px){.nt{font-size:0.8125rem}}
-    .nd{font-size:0.625rem;color:#64748b;line-height:1.4}
-    @media(min-width:768px){.nd{font-size:0.6875rem}}
+    .tree-trunk{width:4px;height:60px;background:linear-gradient(180deg,#10b981,#067a55);border-radius:2px;position:relative;margin:0 auto}
+    @media(min-width:768px){.tree-trunk{height:80px;width:5px}}
+    @media(min-width:1024px){.tree-trunk{height:100px}}
+
+    /* Trunk glow */
+    .tree-trunk::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:rgba(16,185,129,0.15);filter:blur(10px)}
+
+    .tree-hub{position:relative;width:90px;height:90px;margin:0 auto;border-radius:50%;background:linear-gradient(145deg,rgba(16,185,129,0.2),rgba(6,182,212,0.12));border:2px solid rgba(16,185,129,0.4);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;box-shadow:0 0 40px rgba(16,185,129,0.2),inset 0 0 30px rgba(16,185,129,0.05)}
+    @media(min-width:480px){.tree-hub{width:105px;height:105px}}
+    @media(min-width:768px){.tree-hub{width:120px;height:120px}}
+    @media(min-width:1024px){.tree-hub{width:140px;height:140px}}
+
+    .tree-hub-icon{width:28px;height:28px;border-radius:0.5rem;background:linear-gradient(135deg,#10b981,#06b6d4);display:flex;align-items:center;justify-content:center;margin-bottom:0.25rem;box-shadow:0 6px 20px rgba(16,185,129,0.4)}
+    @media(min-width:768px){.tree-hub-icon{width:32px;height:32px}}
+    .tree-hub-text{font-weight:700;font-size:0.65rem;color:#fff;text-align:center;line-height:1.2}
+    @media(min-width:768px){.tree-hub-text{font-size:0.75rem}}
+    .tree-hub-sub{font-size:0.45rem;color:#64748b;text-align:center;margin-top:0.1rem}
+
+    /* Branch connector SVG */
+    .tree-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+
+    /* Branch groups */
+    .tree-branches{position:relative;z-index:2;margin-top:1.5rem}
+    @media(min-width:768px){.tree-branches{margin-top:2rem}}
+    @media(min-width:1024px){.tree-branches{margin-top:2.5rem}}
+
+    /* Level 1: Main branches */
+    .branch-l1{margin-bottom:1.25rem}
+    @media(min-width:768px){.branch-l1{margin-bottom:1.5rem}}
+    @media(min-width:1024px){.branch-l1{margin-bottom:0}}
+
+    @media(min-width:1024px){
+      .branch-l1-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    }
+
+    .branch-l1-header{display:flex;align-items:center;gap:0.625rem;margin-bottom:0.75rem;position:relative;padding-left:1.5rem}
+    @media(min-width:1024px){.branch-l1-header{padding-left:0;justify-content:center;margin-bottom:1rem}}
+
+    /* Stem line from trunk to branch */
+    .branch-stem{position:absolute;left:0;top:0;width:4px;height:100%;border-radius:2px}
+    .branch-stem.s-green{background:linear-gradient(180deg,#10b981,#067a55)}
+    .branch-stem.s-cyan{background:linear-gradient(180deg,#06b6d4,#0e7490)}
+    .branch-stem.s-purple{background:linear-gradient(180deg,#8b5cf6,#6d28d9)}
+    @media(min-width:1024px){.branch-stem{display:none}}
+
+    .branch-l1-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;position:relative;z-index:2}
+    .branch-l1-dot.d-green{background:#10b981;box-shadow:0 0 12px rgba(16,185,129,0.5)}
+    .branch-l1-dot.d-cyan{background:#06b6d4;box-shadow:0 0 12px rgba(6,182,212,0.5)}
+    .branch-l1-dot.d-purple{background:#8b5cf6;box-shadow:0 0 12px rgba(139,92,246,0.5)}
+
+    .branch-l1-title{font-weight:700;font-size:0.8125rem;color:#fff}
+    @media(min-width:768px){.branch-l1-title{font-size:0.875rem}}
+
+    /* Level 2 leaf nodes */
+    .branch-leaves{display:grid;grid-template-columns:repeat(2,1fr);gap:0.625rem;padding-left:1.25rem}
+    @media(min-width:480px){.branch-leaves{gap:0.75rem}}
+    @media(min-width:640px){.branch-leaves{padding-left:1.5rem;gap:0.875rem}}
+    @media(min-width:1024px){.branch-leaves{padding-left:0;grid-template-columns:repeat(2,1fr);gap:0.75rem}}
+
+    /* Leaf node */
+    .leaf{position:relative;padding:0.875rem 0.625rem;background:linear-gradient(145deg,rgba(13,21,37,0.95),rgba(10,15,26,0.98));border:1px solid rgba(255,255,255,0.06);border-radius:0.75rem;text-align:center;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1);opacity:0;transform:translateY(20px) scale(0.95)}
+    @media(min-width:768px){.leaf{padding:1rem 0.75rem;border-radius:0.875rem}}
+
+    .leaf::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:1px;height:6px;border-radius:1px}
+    .leaf.l-green::before{background:rgba(16,185,129,0.3)}
+    .leaf.l-cyan::before{background:rgba(6,182,212,0.3)}
+    .leaf.l-purple::before{background:rgba(139,92,246,0.3)}
+    @media(min-width:1024px){.leaf::before{display:none}}
+
+    .leaf:hover{transform:translateY(-3px) scale(1.03);border-color:var(--lc,rgba(16,185,129,0.3));box-shadow:0 12px 30px rgba(0,0,0,0.3),0 0 20px var(--lg,rgba(16,185,129,0.08))}
+    .leaf.anim{opacity:1;transform:translateY(0) scale(1)}
+
+    .leaf-icon{width:2.25rem;height:2.25rem;border-radius:0.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;transition:all .3s}
+    @media(min-width:768px){.leaf-icon{width:2.5rem;height:2.5rem;margin-bottom:0.625rem}}
+    .leaf:hover .leaf-icon{transform:scale(1.1) rotate(5deg)}
+
+    .leaf-title{font-weight:600;font-size:0.6875rem;color:#fff;margin-bottom:0.1875rem;line-height:1.3}
+    @media(min-width:768px){.leaf-title{font-size:0.75rem}}
+    .leaf-desc{font-size:0.5625rem;color:#64748b;line-height:1.4}
+    @media(min-width:768px){.leaf-desc{font-size:0.625rem}}
+
+    /* Pulse ring on hub */
+    .tree-hub::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(16,185,129,0.15);animation:tpulse 3s ease-in-out infinite}
+    @keyframes tpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:0}}
 
     /* PROJECTS */
     #projects{position:relative;padding:4rem 0;background:rgba(13,21,37,0.3)}
@@ -433,7 +511,7 @@
             <div class="si"><div class="sv" id="s3">0+</div><div class="sl">Years</div></div>
           </div>
         </div>
-        <!-- 3D HERO — VISIBLE EVERYWHERE -->
+        <!-- HERO VISUAL: flat on mobile, 3D on desktop -->
         <div class="hv">
           <div class="h3s" id="h3s">
             <div class="lc lc-code">
@@ -441,7 +519,7 @@
               <div class="cb"><div><span class="ck">const</span> <span class="cf">buildFuture</span> = <span class="ck">async</span> () =&gt; {</div><div style="padding-left:0.75rem"><span class="ck">const</span> idea = <span class="ck">await</span> <span class="cf">discover</span>();</div><div style="padding-left:0.75rem"><span class="ck">const</span> product = <span class="cf">develop</span>(idea);</div><div style="padding-left:0.75rem"><span class="ck">return</span> <span class="cs">"Success"</span>;</div><div>};</div></div>
             </div>
             <div class="lc lc-tech">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.375rem"><span style="font-size:0.65rem;color:#94a3b8;font-weight:600">TECH STACK</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.375rem"><span style="font-size:0.6rem;color:#94a3b8;font-weight:600">TECH STACK</span></div>
               <div class="tg">
                 <div class="tib"><svg viewBox="0 0 24 24" fill="none" stroke="#10b981"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
                 <div class="tib"><svg viewBox="0 0 24 24" fill="none" stroke="#06b6d4"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg></div>
@@ -451,8 +529,8 @@
                 <div class="tib"><svg viewBox="0 0 24 24" fill="none" stroke="#14b8a6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
               </div>
             </div>
-            <div class="fs fs1"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
-            <div class="fs fs2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+            <div class="fs fs1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div>
+            <div class="fs fs2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
           </div>
         </div>
       </div>
@@ -460,7 +538,7 @@
     <div class="sci"><span class="sct">Scroll</span><div class="scm"><div class="scd"></div></div></div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES — HEREDITARY TREE -->
   <section id="services">
     <div class="glow" style="width:350px;height:350px;background:rgba(16,185,129,0.04);top:5%;right:-12%"></div>
     <div class="container">
@@ -469,20 +547,106 @@
         <h2 class="st">End-to-End <span class="gt">Development Services</span></h2>
         <p class="sd">From idea to deployment — we cover every aspect of your digital journey.</p>
       </div>
-      <div class="tc" id="tc">
-        <div class="thub" id="thub"><div class="thub-i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><div class="thub-t">Codinec</div><div class="thub-s">Full-Stack Solutions</div></div>
-        <svg class="tsvg" id="tsvg"></svg>
-        <div class="tn" id="tn">
-          <div class="tnode" style="--nc:#10b981;--ng:rgba(16,185,129,0.12)"><div class="ni" style="background:rgba(16,185,129,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><div class="nt">PHP Framework</div><p class="nd">Laravel & CodeIgniter</p></div>
-          <div class="tnode" style="--nc:#06b6d4;--ng:rgba(6,182,212,0.12)"><div class="ni" style="background:rgba(6,182,212,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><div class="nt">Full-Stack Web</div><p class="nd">React, Vue, Node.js</p></div>
-          <div class="tnode" style="--nc:#8b5cf6;--ng:rgba(139,92,246,0.12)"><div class="ni" style="background:rgba(139,92,246,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div><div class="nt">Custom Web Apps</div><p class="nd">Tailored solutions</p></div>
-          <div class="tnode" style="--nc:#14b8a6;--ng:rgba(20,184,166,0.12)"><div class="ni" style="background:rgba(20,184,166,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div><div class="nt">Database Design</div><p class="nd">MySQL, PostgreSQL</p></div>
-          <div class="tnode" style="--nc:#10b981;--ng:rgba(16,185,129,0.12)"><div class="ni" style="background:rgba(16,185,129,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div><div class="nt">Maintenance</div><p class="nd">24/7 Updates</p></div>
-          <div class="tnode" style="--nc:#06b6d4;--ng:rgba(6,182,212,0.12)"><div class="ni" style="background:rgba(6,182,212,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div><div class="nt">Automation</div><p class="nd">Smart workflows</p></div>
-          <div class="tnode" style="--nc:#8b5cf6;--ng:rgba(139,92,246,0.12)"><div class="ni" style="background:rgba(139,92,246,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg></div><div class="nt">Python Scripting</div><p class="nd">Data processing</p></div>
-          <div class="tnode" style="--nc:#14b8a6;--ng:rgba(20,184,166,0.12)"><div class="ni" style="background:rgba(20,184,166,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div><div class="nt">Mobile Apps</div><p class="nd">Flutter & React Native</p></div>
-          <div class="tnode" style="--nc:#10b981;--ng:rgba(16,185,129,0.12)"><div class="ni" style="background:rgba(16,185,129,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg></div><div class="nt">AI & Chatbots</div><p class="nd">WhatsApp bots</p></div>
-          <div class="tnode" style="--nc:#06b6d4;--ng:rgba(6,182,212,0.12)"><div class="ni" style="background:rgba(6,182,212,0.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><div class="nt">API Development</div><p class="nd">REST APIs</p></div>
+
+      <div class="tree-wrap" id="treeWrap">
+        <svg class="tree-svg" id="treeSvg"></svg>
+
+        <!-- ROOT: Trunk + Hub -->
+        <div class="tree-root">
+          <div class="tree-trunk"></div>
+          <div class="tree-hub" id="treeHub">
+            <div class="tree-hub-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+            <div class="tree-hub-text">Codinec</div>
+            <div class="tree-hub-sub">Full-Stack</div>
+          </div>
+        </div>
+
+        <!-- BRANCHES -->
+        <div class="tree-branches">
+
+          <!-- Branch 1: Web Development (Green) -->
+          <div class="branch-l1" data-color="green">
+            <div class="branch-l1-header">
+              <div class="branch-stem s-green"></div>
+              <div class="branch-l1-dot d-green"></div>
+              <span class="branch-l1-title">Web Development</span>
+            </div>
+            <div class="branch-leaves">
+              <div class="leaf l-green" style="--lc:rgba(16,185,129,0.3);--lg:rgba(16,185,129,0.08)">
+                <div class="leaf-icon" style="background:rgba(16,185,129,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                <div class="leaf-title">PHP Framework</div>
+                <p class="leaf-desc">Laravel & CodeIgniter</p>
+              </div>
+              <div class="leaf l-green" style="--lc:rgba(16,185,129,0.3);--lg:rgba(16,185,129,0.08)">
+                <div class="leaf-icon" style="background:rgba(16,185,129,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+                <div class="leaf-title">Full-Stack Web</div>
+                <p class="leaf-desc">React, Vue, Node.js</p>
+              </div>
+              <div class="leaf l-green" style="--lc:rgba(16,185,129,0.3);--lg:rgba(16,185,129,0.08)">
+                <div class="leaf-icon" style="background:rgba(16,185,129,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+                <div class="leaf-title">Custom Web Apps</div>
+                <p class="leaf-desc">Tailored solutions</p>
+              </div>
+              <div class="leaf l-green" style="--lc:rgba(16,185,129,0.3);--lg:rgba(16,185,129,0.08)">
+                <div class="leaf-icon" style="background:rgba(16,185,129,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
+                <div class="leaf-title">Database Design</div>
+                <p class="leaf-desc">MySQL, PostgreSQL</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branch 2: Mobile & AI (Cyan) -->
+          <div class="branch-l1" data-color="cyan">
+            <div class="branch-l1-header">
+              <div class="branch-stem s-cyan"></div>
+              <div class="branch-l1-dot d-cyan"></div>
+              <span class="branch-l1-title">Mobile & AI</span>
+            </div>
+            <div class="branch-leaves">
+              <div class="leaf l-cyan" style="--lc:rgba(6,182,212,0.3);--lg:rgba(6,182,212,0.08)">
+                <div class="leaf-icon" style="background:rgba(6,182,212,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+                <div class="leaf-title">Mobile Apps</div>
+                <p class="leaf-desc">Flutter & React Native</p>
+              </div>
+              <div class="leaf l-cyan" style="--lc:rgba(6,182,212,0.3);--lg:rgba(6,182,212,0.08)">
+                <div class="leaf-icon" style="background:rgba(6,182,212,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg></div>
+                <div class="leaf-title">AI & Chatbots</div>
+                <p class="leaf-desc">WhatsApp bots</p>
+              </div>
+              <div class="leaf l-cyan" style="--lc:rgba(6,182,212,0.3);--lg:rgba(6,182,212,0.08)">
+                <div class="leaf-icon" style="background:rgba(6,182,212,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                <div class="leaf-title">Automation</div>
+                <p class="leaf-desc">Smart workflows</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Branch 3: Backend & Ops (Purple) -->
+          <div class="branch-l1" data-color="purple">
+            <div class="branch-l1-header">
+              <div class="branch-stem s-purple"></div>
+              <div class="branch-l1-dot d-purple"></div>
+              <span class="branch-l1-title">Backend & Ops</span>
+            </div>
+            <div class="branch-leaves">
+              <div class="leaf l-purple" style="--lc:rgba(139,92,246,0.3);--lg:rgba(139,92,246,0.08)">
+                <div class="leaf-icon" style="background:rgba(139,92,246,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg></div>
+                <div class="leaf-title">Python Scripting</div>
+                <p class="leaf-desc">Data processing</p>
+              </div>
+              <div class="leaf l-purple" style="--lc:rgba(139,92,246,0.3);--lg:rgba(139,92,246,0.08)">
+                <div class="leaf-icon" style="background:rgba(139,92,246,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+                <div class="leaf-title">API Development</div>
+                <p class="leaf-desc">REST & GraphQL APIs</p>
+              </div>
+              <div class="leaf l-purple" style="--lc:rgba(139,92,246,0.3);--lg:rgba(139,92,246,0.08)">
+                <div class="leaf-icon" style="background:rgba(139,92,246,0.1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+                <div class="leaf-title">Maintenance</div>
+                <p class="leaf-desc">24/7 Support & Updates</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -623,38 +787,19 @@
     var mmX = document.getElementById('mmX');
     var menuOpen = false;
 
-    function openMenu() {
-      menuOpen = true;
-      hamBtn.classList.add('on');
-      mm.classList.add('on');
-      bd.classList.add('on');
-      document.body.style.overflow = 'hidden';
-    }
+    function openMenu() { menuOpen = true; hamBtn.classList.add('on'); mm.classList.add('on'); bd.classList.add('on'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { menuOpen = false; hamBtn.classList.remove('on'); mm.classList.remove('on'); bd.classList.remove('on'); document.body.style.overflow = ''; }
 
-    function closeMenu() {
-      menuOpen = false;
-      hamBtn.classList.remove('on');
-      mm.classList.remove('on');
-      bd.classList.remove('on');
-      document.body.style.overflow = '';
-    }
-
-    hamBtn.addEventListener('click', function() {
-      if (menuOpen) { closeMenu(); } else { openMenu(); }
-    });
-
+    hamBtn.addEventListener('click', function() { menuOpen ? closeMenu() : openMenu(); });
     mmX.addEventListener('click', closeMenu);
     bd.addEventListener('click', closeMenu);
 
-    // Close menu on link click
     var mmLinks = mm.querySelectorAll('.mm-link, .btn-p');
     for (var i = 0; i < mmLinks.length; i++) {
-      mmLinks[i].addEventListener('click', function() {
-        closeMenu();
-      });
+      mmLinks[i].addEventListener('click', function() { closeMenu(); });
     }
 
-    /* ===== HERO CANVAS ===== */
+    /* ===== HERO CANVAS — 2D particles, no Three.js ===== */
     function initCanvas() {
       var canvas = document.getElementById('heroC');
       var ctx = canvas.getContext('2d');
@@ -668,14 +813,14 @@
       function create() {
         particles = [];
         var mob = w < 768;
-        var count = mob ? Math.min(20, Math.floor((w * h) / 30000)) : Math.min(55, Math.floor((w * h) / 15000));
+        var count = mob ? Math.min(18, Math.floor((w * h) / 35000)) : Math.min(50, Math.floor((w * h) / 16000));
         for (var i = 0; i < count; i++) {
           particles.push({
             x: Math.random() * w,
             y: Math.random() * h,
-            vx: (Math.random() - 0.5) * (mob ? 0.25 : 0.5),
-            vy: (Math.random() - 0.5) * (mob ? 0.25 : 0.5),
-            s: Math.random() * (mob ? 1.5 : 2) + 0.5
+            vx: (Math.random() - 0.5) * (mob ? 0.2 : 0.4),
+            vy: (Math.random() - 0.5) * (mob ? 0.2 : 0.4),
+            s: Math.random() * (mob ? 1.2 : 1.8) + 0.5
           });
         }
       }
@@ -683,7 +828,7 @@
       function draw() {
         ctx.clearRect(0, 0, w, h);
         var mob = w < 768;
-        var cd = mob ? 90 : 150;
+        var cd = mob ? 85 : 140;
         var cd2 = cd * cd;
         for (var i = 0; i < particles.length; i++) {
           var p = particles[i];
@@ -692,7 +837,7 @@
           if (p.y < 0 || p.y > h) p.vy *= -1;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(16,185,129,0.35)';
+          ctx.fillStyle = 'rgba(16,185,129,0.3)';
           ctx.fill();
           if (!mob || i % 3 === 0) {
             for (var j = i + 1; j < particles.length; j++) {
@@ -714,90 +859,122 @@
       }
 
       var rt;
-      window.addEventListener('resize', function() {
-        clearTimeout(rt);
-        rt = setTimeout(function() { resize(); create(); }, 200);
-      });
+      window.addEventListener('resize', function() { clearTimeout(rt); rt = setTimeout(function() { resize(); create(); }, 200); });
       resize(); create(); draw();
     }
 
-    /* ===== HERO 3D ===== */
+    /* ===== HERO VISUAL — floating animation, 3D only on desktop ===== */
     function init3D() {
       var stage = document.getElementById('h3s');
       if (!stage) return;
       var layers = stage.querySelectorAll('.lc, .fs');
+      var isDesktop = window.innerWidth >= 1024;
 
-      // Floating animation for all screens
+      // Floating for all screens — subtle on mobile
       for (var i = 0; i < layers.length; i++) {
         (function(el, idx) {
+          var mobY = window.innerWidth < 1024 ? 6 : 12;
+          var mobDur = window.innerWidth < 1024 ? 3 : 2;
           gsap.to(el, {
-            y: '+=12',
-            duration: 2 + idx * 0.4,
+            y: '+=' + mobY,
+            duration: mobDur + idx * 0.3,
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
-            delay: idx * 0.15
+            delay: idx * 0.2
           });
         })(layers[i], i);
       }
 
-      // Mouse parallax only on desktop
-      if (window.innerWidth >= 1024) {
+      // Mouse parallax ONLY on desktop
+      if (isDesktop) {
         document.addEventListener('mousemove', function(e) {
           var x = (e.clientX / window.innerWidth - 0.5) * 2;
           var y = (e.clientY / window.innerHeight - 0.5) * 2;
-          gsap.to(stage, { rotationY: x * 15, rotationX: -y * 15, duration: 1, ease: 'power2.out' });
+          gsap.to(stage, { rotationY: x * 12, rotationX: -y * 12, duration: 1, ease: 'power2.out' });
           for (var i = 0; i < layers.length; i++) {
-            var d = (i + 1) * 10;
+            var d = (i + 1) * 8;
             gsap.to(layers[i], { x: x * d, y: y * d, duration: 1, ease: 'power2.out' });
           }
         });
       }
     }
 
-    /* ===== TREE SVG LINES ===== */
+    /* ===== TREE SVG BRANCH LINES ===== */
     function drawTreeLines() {
-      var svg = document.getElementById('tsvg');
-      var hub = document.getElementById('thub');
-      var nodes = document.querySelectorAll('.tnode');
-      if (!svg || !hub || nodes.length === 0) return;
+      var svg = document.getElementById('treeSvg');
+      var hub = document.getElementById('treeHub');
+      var branches = document.querySelectorAll('.branch-l1');
+      var leaves = document.querySelectorAll('.leaf');
+      if (!svg || !hub || branches.length === 0) return;
 
-      var container = document.getElementById('tc');
-      var cRect = container.getBoundingClientRect();
+      var wrap = document.getElementById('treeWrap');
+      var wRect = wrap.getBoundingClientRect();
       var hRect = hub.getBoundingClientRect();
 
-      var hx = hRect.left + hRect.width / 2 - cRect.left;
-      var hy = hRect.top + hRect.height - cRect.top;
+      var hx = hRect.left + hRect.width / 2 - wRect.left;
+      var hy = hRect.top + hRect.height - wRect.top;
 
-      svg.setAttribute('width', container.offsetWidth);
-      svg.setAttribute('height', container.offsetHeight);
+      svg.setAttribute('width', wrap.offsetWidth);
+      svg.setAttribute('height', wrap.offsetHeight);
       svg.innerHTML = '';
 
-      var colors = ['#10b981','#06b6d4','#8b5cf6','#14b8a6','#10b981','#06b6d4','#8b5cf6','#14b8a6','#10b981','#06b6d4'];
+      var colorMap = { green: '#10b981', cyan: '#06b6d4', purple: '#8b5cf6' };
 
-      for (var i = 0; i < nodes.length; i++) {
-        var nRect = nodes[i].getBoundingClientRect();
-        var nx = nRect.left + nRect.width / 2 - cRect.left;
-        var ny = nRect.top - cRect.top;
+      // Lines from hub to each branch header dot
+      branches.forEach(function(branch) {
+        var color = colorMap[branch.dataset.color] || '#10b981';
+        var dot = branch.querySelector('.branch-l1-dot');
+        if (!dot) return;
+        var dRect = dot.getBoundingClientRect();
+        var dx = dRect.left + dRect.width / 2 - wRect.left;
+        var dy = dRect.top + dRect.height / 2 - wRect.top;
 
-        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', hx);
-        line.setAttribute('y1', hy);
-        line.setAttribute('x2', nx);
-        line.setAttribute('y2', ny);
-        line.setAttribute('stroke', colors[i % colors.length]);
-        line.setAttribute('stroke-width', '1.5');
-        line.setAttribute('stroke-opacity', '0.25');
-        line.setAttribute('stroke-dasharray', '6 4');
-        svg.appendChild(line);
+        // Curved path from hub to dot
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        var midY = (hy + dy) / 2;
+        path.setAttribute('d', 'M ' + hx + ' ' + hy + ' C ' + hx + ' ' + midY + ', ' + dx + ' ' + midY + ', ' + dx + ' ' + dy);
+        path.setAttribute('stroke', color);
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('stroke-opacity', '0.2');
+        path.setAttribute('fill', 'none');
+        svg.appendChild(path);
+      });
 
-        var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circle.setAttribute('cx', nx);
-        circle.setAttribute('cy', ny);
-        circle.setAttribute('r', '3');
-        circle.setAttribute('fill', colors[i % colors.length]);
-        circle.setAttribute('fill-opacity', '0.4');
-        svg.appendChild(circle);
+      // Lines from branch dots to each leaf (desktop only for cleanliness)
+      if (window.innerWidth >= 1024) {
+        branches.forEach(function(branch) {
+          var color = colorMap[branch.dataset.color] || '#10b981';
+          var dot = branch.querySelector('.branch-l1-dot');
+          if (!dot) return;
+          var dRect = dot.getBoundingClientRect();
+          var dx = dRect.left + dRect.width / 2 - wRect.left;
+          var dy = dRect.top + dRect.height / 2 - wRect.top;
+
+          var branchLeaves = branch.querySelectorAll('.leaf');
+          branchLeaves.forEach(function(leaf) {
+            var lRect = leaf.getBoundingClientRect();
+            var lx = lRect.left + lRect.width / 2 - wRect.left;
+            var ly = lRect.top - wRect.top;
+
+            var lpath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            var lmidY = (dy + ly) / 2;
+            lpath.setAttribute('d', 'M ' + dx + ' ' + dy + ' C ' + dx + ' ' + lmidY + ', ' + lx + ' ' + lmidY + ', ' + lx + ' ' + ly);
+            lpath.setAttribute('stroke', color);
+            lpath.setAttribute('stroke-width', '1');
+            lpath.setAttribute('stroke-opacity', '0.12');
+            lpath.setAttribute('fill', 'none');
+            svg.appendChild(lpath);
+
+            var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', lx);
+            circle.setAttribute('cy', ly);
+            circle.setAttribute('r', '2.5');
+            circle.setAttribute('fill', color);
+            circle.setAttribute('fill-opacity', '0.3');
+            svg.appendChild(circle);
+          });
+        });
       }
     }
 
@@ -829,30 +1006,35 @@
       // Stats
       ScrollTrigger.create({
         trigger: '#hero', start: 'top 80%', once: true,
-        onEnter: function() {
-          animCount('s1', 150);
-          animCount('s2', 80);
-          animCount('s3', 5);
-        }
+        onEnter: function() { animCount('s1', 150); animCount('s2', 80); animCount('s3', 5); }
       });
 
-      // Tree hub
-      gsap.from('#thub', { scale: 0, opacity: 0, duration: 0.8, ease: 'elastic.out(1,0.5)', scrollTrigger: { trigger: '#services', start: 'top 75%' } });
+      // Tree trunk animation
+      gsap.from('.tree-trunk', { scaleY: 0, transformOrigin: 'top center', duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '#services', start: 'top 75%' } });
 
-      // Tree nodes
-      var nodes = document.querySelectorAll('.tnode');
-      nodes.forEach(function(node, i) {
-        gsap.to(node, {
-          opacity: 1, y: 0, duration: 0.5, delay: 0.3 + i * 0.08, ease: 'power3.out',
-          scrollTrigger: { trigger: '#tn', start: 'top 85%' },
-          onComplete: function() { node.classList.add('anim'); }
+      // Tree hub
+      gsap.from('#treeHub', { scale: 0, opacity: 0, duration: 0.8, ease: 'elastic.out(1,0.5)', scrollTrigger: { trigger: '#services', start: 'top 70%' } });
+
+      // Branch headers
+      var branchHeaders = document.querySelectorAll('.branch-l1-header');
+      branchHeaders.forEach(function(header, i) {
+        gsap.from(header, { x: -30, opacity: 0, duration: 0.6, delay: 0.2 + i * 0.15, ease: 'power3.out', scrollTrigger: { trigger: '#services', start: 'top 60%' } });
+      });
+
+      // Leaf nodes
+      var leafNodes = document.querySelectorAll('.leaf');
+      leafNodes.forEach(function(leaf, i) {
+        gsap.to(leaf, {
+          opacity: 1, y: 0, scale: 1, duration: 0.5, delay: 0.4 + i * 0.06, ease: 'power3.out',
+          scrollTrigger: { trigger: '.tree-branches', start: 'top 80%' },
+          onComplete: function() { leaf.classList.add('anim'); }
         });
       });
 
-      // Draw tree lines after nodes animate
+      // Draw tree lines after leaves animate
       ScrollTrigger.create({
-        trigger: '#tn', start: 'top 70%', once: true,
-        onEnter: function() { setTimeout(drawTreeLines, 800); }
+        trigger: '.tree-branches', start: 'top 65%', once: true,
+        onEnter: function() { setTimeout(drawTreeLines, 900); }
       });
       window.addEventListener('resize', function() { clearTimeout(window._trt); window._trt = setTimeout(drawTreeLines, 300); });
 
@@ -887,17 +1069,8 @@
     }
 
     /* ===== FORMS ===== */
-    document.getElementById('cf').addEventListener('submit', function(e) {
-      e.preventDefault();
-      showToast('Message sent! We will get back to you soon.');
-      this.reset();
-    });
-
-    document.getElementById('nf').addEventListener('submit', function(e) {
-      e.preventDefault();
-      showToast('Subscribed successfully! Check your inbox.');
-      this.reset();
-    });
+    document.getElementById('cf').addEventListener('submit', function(e) { e.preventDefault(); showToast('Message sent! We will get back to you soon.'); this.reset(); });
+    document.getElementById('nf').addEventListener('submit', function(e) { e.preventDefault(); showToast('Subscribed successfully! Check your inbox.'); this.reset(); });
 
     /* ===== SMOOTH SCROLL ===== */
     document.querySelectorAll('a[href^="#"]').forEach(function(a) {
